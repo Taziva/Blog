@@ -1,0 +1,32 @@
+@font-face {
+  font-family: "Cassannet";
+  src: url("./fonts/cassannet/cassannet.eot");
+  src: url("./fonts/cassannet/cassannet.woff") format("woff"),
+    url("./fonts/cassannet/cassannet.ttf") format("ttf"),
+    url("./fonts/cassannet/cassannet.woff2") format("woff2"),
+    url("./fonts/cassannet/cassannet.svg#filename") format("svg");
+}
+body {
+  font-family: "Cassannet";
+  line-height: 2;
+}
+
+.heading-primary {
+  backface-visibility: hidden;
+  text-transform: uppercase;
+  color: #ffffff;
+
+  &--main {
+    animation: slideInLeft 1s ease-out;
+    display: block;
+    font-size: 6rem;
+    letter-spacing: 3.5rem;
+  }
+
+  &--sub {
+    animation: slideInRight 1s ease-out;
+    display: block;
+    font-size: 2rem;
+    letter-spacing: 1.75rem;
+  }
+}

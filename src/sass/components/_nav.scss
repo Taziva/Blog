@@ -1,0 +1,29 @@
+.nav {
+  color: #fff;
+  display: flex;
+  justify-content: space-between;
+  background-color: transparent;
+  align-items: center;
+  width: 100%;
+  padding: 0 5rem;
+  &__brand {
+    &-logo {
+      font-size: 2.9rem;
+    }
+  }
+
+  &__link {
+    & > a {
+      font-size: 2.9em;
+      text-decoration: none;
+      color: #fff;
+    }
+    &:not(:last-child) {
+      margin-right: 2rem;
+    }
+  }
+  &__links {
+    list-style: none;
+    display: flex;
+  }
+}

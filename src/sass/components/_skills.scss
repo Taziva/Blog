@@ -1,0 +1,45 @@
+.skills {
+  display: flex;
+  align-items: center;
+  background-image: linear-gradient(
+      to right bottom,
+      rgba(255, 255, 255, 0.9),
+      rgba(255, 255, 255, 0.9)
+    ),
+    url("./images/bg-skills.jpg");
+  background-size: cover;
+  max-height: 50rem;
+  border-radius: 0.3rem;
+
+  &__content {
+    width: 50%;
+  }
+  &__header {
+    font-size: 3rem;
+  }
+  &__body {
+    border-right: 1px solid $color-grey-dark-2;
+    font-size: 1.4rem;
+    padding: 3rem;
+    padding-right: 8rem;
+    letter-spacing: 2px;
+  }
+  &__media {
+    display: flex;
+    justify-content: space-around;
+    &-container {
+      padding: 3rem;
+    }
+    &-list {
+      display: flex;
+      flex-wrap: wrap;
+      list-style: none;
+      font-size: 1.4rem;
+
+      & li {
+        flex: 0 0 50%;
+        margin-bottom: 1rem;
+      }
+    }
+  }
+}
