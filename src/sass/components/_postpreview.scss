@@ -1,4 +1,4 @@
-.post {
+.post-preview {
   min-height: 40rem;
   width: 75%;
   padding-bottom: 7rem;
@@ -23,7 +23,7 @@
     margin-left: 0;
   }
   &__media {
-    &-link {
+    &-link a {
       font-size: 1.5rem;
       color: $color-primary;
       &:hover {

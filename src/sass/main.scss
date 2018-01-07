@@ -11,6 +11,7 @@
 @import "base/utilities";
 
 //COMPONENTS
+@import "components/postpreview";
 @import "components/post";
 @import "components/nav";
 @import "components/aboutme";
@@ -21,3 +22,6 @@
 @import "layout/blogposts";
 @import "layout/header";
 @import "layout/card";
+
+//VENDORS
+@import "vendors/reactroutermodal";

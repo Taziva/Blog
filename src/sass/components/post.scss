@@ -1,0 +1,50 @@
+.post {
+  &__content {
+    padding: 0 20rem;
+    position: relative;
+  }
+  &__header {
+    font-size: 5rem;
+
+    background-image: linear-gradient(
+      to right,
+      $color-primary,
+      $color-secondary
+    );
+    -webkit-background-clip: text;
+    color: transparent;
+    &-container {
+      position: absolute;
+      top: 37%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      background-color: rgba(255, 255, 255, 0.9);
+      width: 100%;
+    }
+    &-image {
+      border-top-left-radius: 0.5rem;
+      border-top-right-radius: 0.5rem;
+      border-bottom: 1px solid $color-primary;
+    }
+  }
+  &__media {
+    &-info {
+      margin-top: 5rem;
+
+      margin-bottom: 5rem;
+      color: $color-grey-dark;
+    }
+    &-author {
+      border-bottom: 1px solid $color-primary;
+      margin-bottom: 3rem;
+      font-size: 2rem;
+    }
+    &-date {
+      font-size: 1.5rem;
+    }
+  }
+  &__text {
+    font-size: 1.2rem;
+    color: $color-grey-dark-3;
+  }
+}

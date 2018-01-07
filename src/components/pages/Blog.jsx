@@ -2,10 +2,15 @@ import React, { Component } from "react";
 import { withRouter } from "react-router-dom";
 import PropTypes from "prop-types";
 import { connect } from "react-redux";
+import { ModalContainer, ModalRoute } from "react-router-modal";
 
 import PostPreview from "../posts/PostPreview.jsx";
+import Post from "../posts/Post.jsx";
+
 import * as actions from "../../actions";
 import Layout from "../layout/Layout.jsx";
+
+import "react-router-modal/css/react-router-modal.css";
 
 export class Blog extends Component {
   constructor(props) {
@@ -33,16 +38,35 @@ export class Blog extends Component {
             })
             .map(blogPost => {
               let post = {
+                id: blogPost.id,
                 title: blogPost.fields.title,
-                text: blogPost.fields.preview,
+                preview: blogPost.fields.preview,
+                content: blogPost.fields.content,
                 author: blogPost.fields.author,
                 date: blogPost.fields.date,
                 hero_image: blogPost.fields.hero_image
               };
-              return <PostPreview key={blogPost.id} post={post} />;
+              return {
+                preview: <PostPreview key={blogPost.id} post={post} />,
+                full: (
+                  <ModalRoute
+                    key={`fullPost-${post.id}`}
+                    path={`/blog/${post.id}`}
+                    parentPath="/blog"
+                  >
+                    <Post post={post} />
+                  </ModalRoute>
+                )
+              };
             });
           if (posts.length > 0) {
-            return posts;
+            let publishedPosts = [].concat.apply(
+              [<ModalContainer key="fullPostContainer" />],
+              posts.map(post => {
+                return Object.values(post);
+              })
+            );
+            return publishedPosts;
           }
         }
         return <div>No posts found</div>;
