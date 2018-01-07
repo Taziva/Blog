@@ -23,3 +23,8 @@ body {
   min-height: 100vh;
   overflow: visible;
 }
+
+::selection {
+  background-color: $color-primary;
+  color: #fff;
+}

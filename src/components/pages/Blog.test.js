@@ -15,12 +15,16 @@ describe("ConnectedBlog", () => {
       posts: [],
       fetchingBlogPosts: false,
       error: null
+    },
+    tagLine: {
+      text: "Tagline"
     }
   };
   const expectedProps = {
     blogPosts: [],
     fetchingBlogPosts: false,
-    error: null
+    error: null,
+    tagLine: "Tagline"
   };
   it("mapStateToProps", () => {
     expect(mapStateToProps(testState)).toEqual(expectedProps);
@@ -32,7 +36,9 @@ describe("Blog", () => {
     const props = {
       blogPost: [],
       fetchBlogPosts: jest.fn(),
-      error: null
+      fetchTagLine: jest.fn(),
+      error: null,
+      tagLine: "Tagline"
     };
     const div = document.createElement("div");
     ReactDOM.render(
@@ -60,8 +66,10 @@ describe("Blog", () => {
       ],
       fetchingBlogPosts: false,
       fetchBlogPosts: jest.fn(),
+      fetchTagLine: jest.fn(),
       error: null,
-      location: { pathname: "/pathname" }
+      location: { pathname: "/pathname" },
+      tagLine: "tagLine"
     };
     const expectedProps = {
       author: "author",
@@ -96,7 +104,9 @@ describe("Blog", () => {
       ],
       fetchingBlogPosts: false,
       fetchBlogPosts: jest.fn(),
-      error: null
+      fetchTagLine: jest.fn(),
+      error: null,
+      tagLine: "Tagline"
     };
     const expectedProps = {
       author: "author",
@@ -113,7 +123,9 @@ describe("Blog", () => {
       blogPosts: [],
       fetchingBlogPosts: false,
       fetchBlogPosts: jest.fn(),
-      error: null
+      fetchTagLine: jest.fn(),
+      error: null,
+      tagLine: "Tagline"
     };
 
     const component = shallow(<Blog {...props} />);
@@ -124,7 +136,9 @@ describe("Blog", () => {
       blogPosts: [],
       fetchingBlogPosts: true,
       fetchBlogPosts: jest.fn(),
-      error: null
+      fetchTagLine: jest.fn(),
+      error: null,
+      tagLine: "Tagline"
     };
     const component = shallow(<Blog {...props} />);
     expect(component.find("section").text()).toEqual("Loading");
@@ -134,7 +148,9 @@ describe("Blog", () => {
       blogPosts: [],
       fetchingBlogPosts: false,
       fetchBlogPosts: jest.fn(),
-      error: "Standard Error"
+      fetchTagLine: jest.fn(),
+      error: "Standard Error",
+      tagLine: "Tagline"
     };
     const component = shallow(<Blog {...props} />);
     expect(component.find("section").text()).toEqual("Standard Error");
