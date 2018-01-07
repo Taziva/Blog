@@ -3,6 +3,7 @@ import { withRouter } from "react-router-dom";
 import PropTypes from "prop-types";
 import { connect } from "react-redux";
 import { ModalContainer, ModalRoute } from "react-router-modal";
+import { Helmet } from "react-helmet";
 
 import PostPreview from "../posts/PostPreview.jsx";
 import Post from "../posts/Post.jsx";
@@ -13,13 +14,9 @@ import Layout from "../layout/Layout.jsx";
 import "react-router-modal/css/react-router-modal.css";
 
 export class Blog extends Component {
-  constructor(props) {
-    super(props);
-    this.state = { tagLine: "My thoughts on the crazy world we live" };
-  }
-
   componentWillMount() {
     this.props.fetchBlogPosts();
+    this.props.fetchTagLine("blog");
   }
 
   renderBlogPosts() {
@@ -80,7 +77,10 @@ export class Blog extends Component {
   }
   render() {
     return (
-      <Layout pageTitle="Blog" tagLine={this.state.tagLine}>
+      <Layout pageTitle="Blog" tagLine={this.props.tagLine}>
+        <Helmet>
+          <title>Blog | Home</title>
+        </Helmet>
         <section className="blog-posts">{this.renderBlogPosts()}</section>
       </Layout>
     );
@@ -96,7 +96,8 @@ export const mapStateToProps = state => {
   return {
     blogPosts: state.blog.posts,
     fetchingBlogPosts: state.blog.fetchingBlogPosts,
-    error: state.blog.error
+    error: state.blog.error,
+    tagLine: state.tagLine.text
   };
 };
 

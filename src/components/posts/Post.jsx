@@ -1,17 +1,22 @@
 import React from "react";
 import PropTypes from "prop-types";
 import ReactHtmlParser from "react-html-parser";
-import { ShareButtons, generateShareIcon } from "react-share";
+import { ShareButtons } from "react-share";
+import { Helmet } from "react-helmet";
 
 const { FacebookShareButton, TwitterShareButton } = ShareButtons;
 
 const Post = ({ post }) => {
   return (
     <div className="post">
+      <Helmet>
+        <title>Blog | {post.title}</title>
+      </Helmet>
       <img
         className="post__header-image"
         src={post.hero_image}
         style={{ width: "100%" }}
+        alt="post hero"
       />
       <div className="post__header-container">
         <h1 className="post__header u-center-text">{post.title}</h1>

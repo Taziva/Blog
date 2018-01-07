@@ -37,6 +37,10 @@ body {
   min-height: 100vh;
   overflow: visible; }
 
+::selection {
+  background-color: #f7971e;
+  color: #fff; }
+
 @font-face {
   font-family: "Cassannet";
   src: url("./fonts/cassannet/cassannet.eot");
@@ -132,7 +136,7 @@ body {
   color: transparent; }
   .post__header-container {
     position: absolute;
-    top: 37%;
+    top: 40%;
     left: 50%;
     transform: translate(-50%, -50%);
     background-color: rgba(255, 255, 255, 0.9);
@@ -171,10 +175,10 @@ body {
     width: 4rem; }
 
 .post__share-button {
-  display: inline-block; }
+  display: inline-block;
+  cursor: pointer; }
   .post__share-button:focus {
-    outline: none;
-    cursor: pointer; }
+    outline: none; }
 
 .nav {
   color: #fff;
@@ -184,6 +188,9 @@ body {
   align-items: center;
   width: 100%;
   padding: 0 5rem; }
+  .nav__brand-link {
+    color: #fff;
+    text-decoration: none; }
   .nav__brand-logo {
     font-size: 2.9rem; }
   .nav__link > a {
