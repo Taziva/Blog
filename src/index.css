@@ -157,7 +157,24 @@ body {
 
 .post__text {
   font-size: 1.2rem;
-  color: #333; }
+  color: #333;
+  border-bottom: 1px solid #f7971e;
+  padding-bottom: 3rem; }
+
+.post__footer {
+  margin-top: 3rem;
+  padding: 0 20rem;
+  display: flex;
+  justify-content: space-between; }
+  .post__footer-icon {
+    height: 4rem;
+    width: 4rem; }
+
+.post__share-button {
+  display: inline-block; }
+  .post__share-button:focus {
+    outline: none;
+    cursor: pointer; }
 
 .nav {
   color: #fff;

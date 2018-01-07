@@ -60,7 +60,8 @@ describe("Blog", () => {
       ],
       fetchingBlogPosts: false,
       fetchBlogPosts: jest.fn(),
-      error: null
+      error: null,
+      location: { pathname: "/pathname" }
     };
     const expectedProps = {
       author: "author",
