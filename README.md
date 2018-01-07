@@ -1,7 +1,6 @@
 This project was bootstrapped with [Create React App](https://github.com/facebookincubator/create-react-app).
 
-Below you will find some information on how to perform common tasks.<br>
-You can find the most recent version of this guide [here](https://github.com/facebookincubator/create-react-app/blob/master/packages/react-scripts/template/README.md).
+[![CircleCI](https://circleci.com/gh/Taziva/Blog.svg?style=shield&&circle-token=e49cb52ca2a19fd5675b32184653d62a963afcac)](https://circleci.com/gh/Taziva/Blog) [![Test Coverage](https://api.codeclimate.com/v1/badges/fb077a8c3e11374551b1/test_coverage)](https://codeclimate.com/github/Taziva/Blog/test_coverage) [![Maintainability](https://api.codeclimate.com/v1/badges/fb077a8c3e11374551b1/maintainability)](https://codeclimate.com/github/Taziva/Blog/maintainability)
 
 ## Table of Contents
 
