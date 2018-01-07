@@ -1,0 +1,12 @@
+.react-router-modal__backdrop {
+  background-color: rgba(0, 0, 0, 0.8) !important;
+  height: calc(100vh - 10rem);
+  overflow-y: scroll;
+}
+.react-router-modal__modal {
+  border: none !important;
+  width: 75vw;
+  height: calc(100vh - 10rem);
+  // margin-top: 5rem;
+  overflow-y: scroll;
+}

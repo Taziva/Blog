@@ -24,7 +24,6 @@ describe("ConnectedBlog", () => {
   };
   it("mapStateToProps", () => {
     expect(mapStateToProps(testState)).toEqual(expectedProps);
-    // expect(component).toBeInstanceOf(Object);
   });
 });
 
@@ -50,12 +49,13 @@ describe("Blog", () => {
           fields: {
             title: "Title",
             preview: "text",
+            content: "content",
             author: "author",
             date: "date",
             hero_image: "hero_image",
             published: true
           },
-          id: 1
+          id: "1"
         }
       ],
       fetchingBlogPosts: false,
@@ -66,7 +66,7 @@ describe("Blog", () => {
       author: "author",
       date: "date",
       hero_image: "hero_image",
-      text: "text",
+      preview: "text",
       title: "Title"
     };
     const component = shallow(<Blog {...props} />);
@@ -75,7 +75,7 @@ describe("Blog", () => {
         .find("section")
         .find(PostPreview)
         .prop("post")
-    ).toEqual(expectedProps);
+    ).toEqual(expect.objectContaining(expectedProps));
   });
   it("doesn't pass on props from unpublished blogPosts", () => {
     const props = {
@@ -84,12 +84,13 @@ describe("Blog", () => {
           fields: {
             title: "Title",
             preview: "text",
+            content: "content",
             author: "author",
             date: "date",
             hero_image: "hero_image",
             published: false
           },
-          id: 1
+          id: "1"
         }
       ],
       fetchingBlogPosts: false,
@@ -100,7 +101,7 @@ describe("Blog", () => {
       author: "author",
       date: "date",
       hero_image: "hero_image",
-      text: "text",
+      preview: "text",
       title: "Title"
     };
     const component = shallow(<Blog {...props} />);

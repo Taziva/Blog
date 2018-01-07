@@ -1,6 +1,7 @@
 import React from "react";
 import PropTypes from "prop-types";
 import Card from "../layout/Card.jsx";
+import { Link } from "react-router-dom";
 
 const PostPreview = ({ post }) => {
   const style = {
@@ -8,21 +9,27 @@ const PostPreview = ({ post }) => {
     backgroundSize: "cover"
   };
   return (
-    <Card style={style} title={post.title} text={post.text} sectionName="post">
-      <a className="post__media-link" href="#">
-        Read More &rarr;
-      </a>
-      <div className="post__media-info u-margin-top-small">
-        <p className="post__media-author">{post.author}</p>
-        <p className="post__media-date">{post.date}</p>
+    <Card
+      style={style}
+      title={post.title}
+      text={post.preview}
+      sectionName="post-preview"
+    >
+      <div className="post-preview__media-link">
+        <Link to={`/blog/${post.id}`}>Read More &rarr;</Link>
+      </div>
+      <div className="post-preview__media-info u-margin-top-small">
+        <p className="post-preview__media-author">{post.author}</p>
+        <p className="post-preview__media-date">{post.date}</p>
       </div>
     </Card>
   );
 };
 PostPreview.propTypes = {
   post: PropTypes.shape({
+    id: PropTypes.string.isRequired,
     title: PropTypes.string.isRequired,
-    text: PropTypes.string.isRequired,
+    preview: PropTypes.string.isRequired,
     author: PropTypes.string.isRequired,
     date: PropTypes.string.isRequired,
     hero_image: PropTypes.string

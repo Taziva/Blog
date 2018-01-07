@@ -34,7 +34,8 @@ body {
   background-image: linear-gradient(to right bottom, #f7971e, #ffd200);
   background-size: cover;
   background-repeat: no-repeat;
-  min-height: 100vh; }
+  min-height: 100vh;
+  overflow: visible; }
 
 @font-face {
   font-family: "Cassannet";
@@ -84,12 +85,12 @@ body {
 .u-margin-top-small {
   margin-top: 1.5rem !important; }
 
-.post {
+.post-preview {
   min-height: 40rem;
   width: 75%;
   padding-bottom: 7rem;
   border-radius: 0.3rem; }
-  .post__header {
+  .post-preview__header {
     font-size: 2rem;
     margin-bottom: 2rem;
     background-image: linear-gradient(to right, #f7971e, #ffd200);
@@ -97,21 +98,21 @@ body {
     color: transparent;
     width: 40%;
     margin-left: 0; }
-  .post__body {
+  .post-preview__body {
     font-size: 1.2rem;
     width: 40%;
     margin-left: 0; }
-  .post__media-link {
+  .post-preview__media-link a {
     font-size: 1.5rem;
     color: #f7971e; }
-    .post__media-link:hover {
+    .post-preview__media-link a:hover {
       background-image: linear-gradient(to right, #f7971e, #ffd200);
       color: #fff;
       box-shadow: 0 1rem 2rem rgba(0, 0, 0, 0.15);
       transform: translateY(-2px); }
-  .post__media-info {
+  .post-preview__media-info {
     font-size: 1.2rem; }
-  .post__media-date {
+  .post-preview__media-date {
     font-size: 1.5rem;
     margin-bottom: 2rem;
     background-image: linear-gradient(to right, #f7971e, #ffd200);
@@ -119,6 +120,44 @@ body {
     color: transparent;
     width: 40%;
     margin-left: 0; }
+
+.post__content {
+  padding: 0 20rem;
+  position: relative; }
+
+.post__header {
+  font-size: 5rem;
+  background-image: linear-gradient(to right, #f7971e, #ffd200);
+  -webkit-background-clip: text;
+  color: transparent; }
+  .post__header-container {
+    position: absolute;
+    top: 37%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: rgba(255, 255, 255, 0.9);
+    width: 100%; }
+  .post__header-image {
+    border-top-left-radius: 0.5rem;
+    border-top-right-radius: 0.5rem;
+    border-bottom: 1px solid #f7971e; }
+
+.post__media-info {
+  margin-top: 5rem;
+  margin-bottom: 5rem;
+  color: #777; }
+
+.post__media-author {
+  border-bottom: 1px solid #f7971e;
+  margin-bottom: 3rem;
+  font-size: 2rem; }
+
+.post__media-date {
+  font-size: 1.5rem; }
+
+.post__text {
+  font-size: 1.2rem;
+  color: #333; }
 
 .nav {
   color: #fff;
@@ -230,3 +269,14 @@ body {
   padding: 4rem 7rem;
   background-color: #f7f7f7;
   margin-bottom: 5rem; }
+
+.react-router-modal__backdrop {
+  background-color: rgba(0, 0, 0, 0.8) !important;
+  height: calc(100vh - 10rem);
+  overflow-y: scroll; }
+
+.react-router-modal__modal {
+  border: none !important;
+  width: 75vw;
+  height: calc(100vh - 10rem);
+  overflow-y: scroll; }
