@@ -44,7 +44,8 @@ export class Blog extends Component {
                 content: blogPost.fields.content,
                 author: blogPost.fields.author,
                 date: blogPost.fields.date,
-                hero_image: blogPost.fields.hero_image
+                hero_image: blogPost.fields.hero_image,
+                url: this.props.location.pathname
               };
               return {
                 preview: <PostPreview key={blogPost.id} post={post} />,

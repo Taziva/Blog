@@ -46,5 +46,25 @@
   &__text {
     font-size: 1.2rem;
     color: $color-grey-dark-3;
+    border-bottom: 1px solid $color-primary;
+    padding-bottom: 3rem;
+  }
+
+  &__footer {
+    margin-top: 3rem;
+    padding: 0 20rem;
+    display: flex;
+    justify-content: space-between;
+    &-icon {
+      height: 4rem;
+      width: 4rem;
+    }
+  }
+  &__share-button {
+    display: inline-block;
+    &:focus {
+      outline: none;
+      cursor: pointer;
+    }
   }
 }

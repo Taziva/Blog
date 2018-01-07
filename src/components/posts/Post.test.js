@@ -11,7 +11,8 @@ it("renders without crashing", () => {
     content: "We're testing react components",
     author: "Author McAuthorface",
     date: "2013-03-01",
-    hero_image: "www.example.com"
+    hero_image: "www.example.com",
+    url: "/url"
   };
   const div = document.createElement("div");
   ReactDOM.render(
