@@ -63,7 +63,9 @@ export class Blog extends Component {
             let publishedPosts = [].concat.apply(
               [<ModalContainer key="fullPostContainer" />],
               posts.map(post => {
-                return Object.values(post);
+                return Object.keys(post).map(function(key) {
+                  return post[key];
+                });
               })
             );
             return publishedPosts;
