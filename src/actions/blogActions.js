@@ -5,9 +5,7 @@ import {
   FETCH_BLOG_POSTS_FAILURE
 } from "./types";
 
-const POSTS_URL = `https://www.pushtable.com/api/firestore/our-blind-mouse-blog/blog_posts?auth=${
-  process.env.REACT_APP_PUSHTABLE_API_KEY
-}`;
+const POSTS_URL = "/api/posts";
 
 function fetchBlogPostsRequest() {
   return {
