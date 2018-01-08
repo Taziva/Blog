@@ -32,7 +32,7 @@ const Post = ({ post }) => {
         <span>&copy; Our Blind Mouse</span>
         <div className="post__footer-social">
           <FacebookShareButton
-            url={`https://ourblindmouse.com`}
+            url={`https://www.ourblindmouse.com`}
             quote={templateShareMessage(post.title, post.author)}
             className="post__share-button"
           >
@@ -42,7 +42,7 @@ const Post = ({ post }) => {
             </svg>
           </FacebookShareButton>
           <TwitterShareButton
-            url={`https://ourblindmouse.com${post.url}`}
+            url={`https://www.ourblindmouse.com${post.url}`}
             title={templateShareMessage(post.title, post.author)}
             className="post__share-button"
           >
