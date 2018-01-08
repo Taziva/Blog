@@ -4,8 +4,7 @@ import NavLink from "./NavLink.jsx";
 const NavLinks = () => {
   return (
     <ul className="nav__links">
-      <NavLink link="/" text="Portfolio" />
-      <NavLink link="/blog" text="Blog" />
+      <NavLink link="/" text="Blog" />
     </ul>
   );
 };

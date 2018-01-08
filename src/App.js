@@ -5,7 +5,6 @@ import { Provider } from "react-redux";
 import { ConnectedRouter } from "react-router-redux";
 
 import Blog from "./components/pages/Blog.jsx";
-import Portfolio from "./components/pages/Portfolio.jsx";
 import NotFoundPage from "./components/pages/NotFoundPage.jsx";
 
 export default class App extends Component {
@@ -14,8 +13,7 @@ export default class App extends Component {
       <Provider store={store}>
         <ConnectedRouter history={history}>
           <Switch>
-            <Route exact path="/" component={Portfolio} />
-            <Route path="/blog" component={Blog} />
+            <Route path="/" component={Blog} />
             <Route path="/*" component={NotFoundPage} />
           </Switch>
         </ConnectedRouter>
