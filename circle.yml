@@ -2,16 +2,16 @@ machine:
   node:
     version: 8.0.0
   environment:
-    PATH: "${PATH}:${HOME}/${CIRCLE_PROJECT_REPONAME}/node_modules/.bin"
+    PATH: "${PATH}:${HOME}/${CIRCLE_PROJECT_REPONAME}/client/node_modules/.bin"
 
 dependencies:
   override:
-    - yarn
+    - cd client && yarn
   cache_directories:
     - ~/.cache/yarn
 test:
   override:
-    - yarn test --coverage
+    - cd client && yarn test --coverage
   post:
-    - yarn global add codeclimate-test-reporter 
-    - codeclimate-test-reporter < coverage/lcov.info
+    - cd client && yarn global add codeclimate-test-reporter
+    - cd client && codeclimate-test-reporter < coverage/lcov.info
