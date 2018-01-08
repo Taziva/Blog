@@ -16,8 +16,8 @@ yarn
 # Compile sass in seperate tab
 yarn run watch:sass
 
-# Start the app
-yarn start
+# Start the app in dev mode
+yarn dev
 ```
 
 ## Testing
@@ -25,4 +25,16 @@ yarn start
 ```
 # Run jest tests
 yarn test
+```
+
+## Deployment
+
+```
+# Make sure you have Google Cloud SDK installed
+
+# Create Production Build
+yarn build
+
+# Deploy to Google Cloud Platform
+yarn deploy
 ```

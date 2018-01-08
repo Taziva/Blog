@@ -3,18 +3,22 @@
   "version": "0.1.0",
   "jest": {
     "collectCoverageFrom": [
-      "src/***/**/*.{js,jsx}",
+      "src/**/**/*.{js,jsx}",
+      "!**/build/**",
+      "!**/coverage/**",
       "!src/registerServiceWorker.js",
       "!**/node_modules/**",
       "!**/vendor/**"
     ]
   },
+  "proxy": "http://localhost:5000",
   "private": true,
   "dependencies": {
     "axios": "^0.17.1",
     "dotenv": "^4.0.0",
     "enzyme": "^3.3.0",
     "enzyme-adapter-react-16": "^1.1.1",
+    "express": "^4.16.2",
     "history": "^4.7.2",
     "react": "^16.2.0",
     "react-dom": "^16.2.0",
@@ -39,12 +43,15 @@
     "redux-mock-store": "^1.4.0"
   },
   "scripts": {
-    "start": "react-scripts start",
+    "start": "node server/app.js",
     "build": "npm-run-all build:css build:js",
     "build:js": "react-scripts build",
     "test": "react-scripts test --env=jsdom",
     "coverage": "react-scripts test --env=jsdom --coverage",
     "eject": "react-scripts eject",
+    "client": "react-scripts start",
+    "dev": "npm-run-all -p start client",
+    "deploy": "gcloud app deploy",
     "watch:sass": "node-sass src/sass/main.scss src/index.css -w",
     "compile:sass": "node-sass src/sass/main.scss public/css/style.comp.css",
     "prefix:css":
