@@ -1,10 +1,9 @@
 import React from "react";
 import ReactDOM from "react-dom";
 import { StaticRouter } from "react-router-dom";
-import { shallowWithStore } from "../../setupTests.js";
 import ConnectedBlog, { Blog, mapStateToProps } from "./Blog.jsx";
 import configureStore from "redux-mock-store";
-import { shallow, mount } from "enzyme";
+import { shallow } from "enzyme";
 import thunk from "redux-thunk";
 import { Provider } from "react-redux";
 import PostPreview from "../posts/PostPreview.jsx";
