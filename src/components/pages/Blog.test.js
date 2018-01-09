@@ -32,6 +32,23 @@ describe("ConnectedBlog", () => {
 
 describe("Blog", () => {
   let props;
+  let blogPosts;
+  const singleBlogPost = published => {
+    return [
+      {
+        fields: {
+          title: "Title",
+          preview: "text",
+          content: "content",
+          author: "author",
+          date: "date",
+          hero_image: "hero_image",
+          published
+        },
+        id: "1"
+      }
+    ];
+  };
   beforeEach(() => {
     props = {
       blogPosts: [],
@@ -53,20 +70,7 @@ describe("Blog", () => {
     );
   });
   it("passes on the right props to PostPreview", () => {
-    props.blogPosts = [
-      {
-        fields: {
-          title: "Title",
-          preview: "text",
-          content: "content",
-          author: "author",
-          date: "date",
-          hero_image: "hero_image",
-          published: true
-        },
-        id: "1"
-      }
-    ];
+    props.blogPosts = singleBlogPost(true);
     const expectedProps = {
       adscript: undefined,
       author: "author",
@@ -124,20 +128,7 @@ describe("Blog", () => {
   });
 
   it("doesn't pass on props from unpublished blogPosts", () => {
-    props.blogPosts = [
-      {
-        fields: {
-          title: "Title",
-          preview: "text",
-          content: "content",
-          author: "author",
-          date: "date",
-          hero_image: "hero_image",
-          published: false
-        },
-        id: "1"
-      }
-    ];
+    props.blogPosts = singleBlogPost(false);
     const component = shallow(<Blog {...props} />);
     expect(component.find("section").text()).toEqual("No posts found");
   });
