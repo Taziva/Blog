@@ -18,8 +18,9 @@ export class Post extends Component {
 
       script.src = newScripts.src;
       script.async = true;
-      console.log(typeof newScripts);
       this.gallery.appendChild(script);
+    } else {
+      return;
     }
   }
   render() {
