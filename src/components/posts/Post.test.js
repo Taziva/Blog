@@ -6,6 +6,14 @@ import Post from "./Post.jsx";
 describe("Post", () => {
   let div;
   let post;
+  const renderPost = () => {
+    ReactDOM.render(
+      <StaticRouter context={{}}>
+        <Post key={post.id} post={post} />
+      </StaticRouter>,
+      div
+    );
+  };
   beforeEach(() => {
     div = document.createElement("div");
     post = {
@@ -20,30 +28,15 @@ describe("Post", () => {
     };
   });
   it("renders with scripts without crashing", () => {
-    ReactDOM.render(
-      <StaticRouter context={{}}>
-        <Post key={post.id} post={post} />
-      </StaticRouter>,
-      div
-    );
+    renderPost();
   });
 
   it("renders without adscripts without crashing", () => {
     post.adscript = undefined;
-    ReactDOM.render(
-      <StaticRouter context={{}}>
-        <Post key={post.id} post={post} />
-      </StaticRouter>,
-      div
-    );
+    renderPost();
   });
 
   it("renders with scripts", () => {
-    ReactDOM.render(
-      <StaticRouter context={{}}>
-        <Post key={post.id} post={post} />
-      </StaticRouter>,
-      div
-    );
+    renderPost();
   });
 });

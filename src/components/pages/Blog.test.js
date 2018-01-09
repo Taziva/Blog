@@ -33,9 +33,10 @@ describe("ConnectedBlog", () => {
 describe("Blog", () => {
   let props;
   let blogPosts;
-  const singleBlogPost = published => {
-    return [
-      {
+  const pushBlogPosts = (i = 1, published = true) => {
+    blogPosts = [];
+    for (var x = 0; x < i; x++) {
+      blogPosts.push({
         fields: {
           title: "Title",
           preview: "text",
@@ -45,9 +46,10 @@ describe("Blog", () => {
           hero_image: "hero_image",
           published
         },
-        id: "1"
-      }
-    ];
+        id: `${x + 1}`
+      });
+    }
+    return blogPosts;
   };
   beforeEach(() => {
     props = {
@@ -70,7 +72,7 @@ describe("Blog", () => {
     );
   });
   it("passes on the right props to PostPreview", () => {
-    props.blogPosts = singleBlogPost(true);
+    props.blogPosts = pushBlogPosts(1);
     const expectedProps = {
       adscript: undefined,
       author: "author",
@@ -92,32 +94,7 @@ describe("Blog", () => {
   });
 
   it("renders multiple Posts", () => {
-    props.blogPosts = [
-      {
-        fields: {
-          title: "Title",
-          preview: "text",
-          content: "content",
-          author: "author",
-          date: "date",
-          hero_image: "hero_image",
-          published: true
-        },
-        id: "1"
-      },
-      {
-        fields: {
-          title: "Title 2",
-          preview: "text 2",
-          content: "content 2",
-          author: "author 2",
-          date: "date 2",
-          hero_image: "hero_image_2",
-          published: true
-        },
-        id: "2"
-      }
-    ];
+    props.blogPosts = pushBlogPosts(2);
     const div = document.createElement("div");
     ReactDOM.render(
       <StaticRouter context={{}}>
@@ -128,7 +105,7 @@ describe("Blog", () => {
   });
 
   it("doesn't pass on props from unpublished blogPosts", () => {
-    props.blogPosts = singleBlogPost(false);
+    props.blogPosts = pushBlogPosts(1, false);
     const component = shallow(<Blog {...props} />);
     expect(component.find("section").text()).toEqual("No posts found");
   });
