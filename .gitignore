@@ -9,6 +9,7 @@
 # production
 /build
 app.yaml
+dispatch.yaml
 
 # misc
 .DS_Store

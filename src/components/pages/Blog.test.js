@@ -31,14 +31,19 @@ describe("ConnectedBlog", () => {
 });
 
 describe("Blog", () => {
-  it("renders without crashing", () => {
-    const props = {
-      blogPost: [],
+  let props;
+  beforeEach(() => {
+    props = {
+      blogPosts: [],
+      fetchingBlogPosts: false,
       fetchBlogPosts: jest.fn(),
       fetchTagLine: jest.fn(),
       error: null,
-      tagLine: "Tagline"
+      location: { pathname: "/pathname" },
+      tagLine: "tagLine"
     };
+  });
+  it("renders without crashing", () => {
     const div = document.createElement("div");
     ReactDOM.render(
       <StaticRouter context={{}}>
@@ -48,34 +53,30 @@ describe("Blog", () => {
     );
   });
   it("passes on the right props to PostPreview", () => {
-    const props = {
-      blogPosts: [
-        {
-          fields: {
-            title: "Title",
-            preview: "text",
-            content: "content",
-            author: "author",
-            date: "date",
-            hero_image: "hero_image",
-            published: true
-          },
-          id: "1"
-        }
-      ],
-      fetchingBlogPosts: false,
-      fetchBlogPosts: jest.fn(),
-      fetchTagLine: jest.fn(),
-      error: null,
-      location: { pathname: "/pathname" },
-      tagLine: "tagLine"
-    };
+    props.blogPosts = [
+      {
+        fields: {
+          title: "Title",
+          preview: "text",
+          content: "content",
+          author: "author",
+          date: "date",
+          hero_image: "hero_image",
+          published: true
+        },
+        id: "1"
+      }
+    ];
     const expectedProps = {
+      adscript: undefined,
       author: "author",
+      content: "content",
       date: "date",
       hero_image: "hero_image",
+      id: "1",
       preview: "text",
-      title: "Title"
+      title: "Title",
+      url: "/pathname"
     };
     const component = shallow(<Blog {...props} />);
     expect(
@@ -85,72 +86,74 @@ describe("Blog", () => {
         .prop("post")
     ).toEqual(expect.objectContaining(expectedProps));
   });
+
+  it("renders multiple Posts", () => {
+    props.blogPosts = [
+      {
+        fields: {
+          title: "Title",
+          preview: "text",
+          content: "content",
+          author: "author",
+          date: "date",
+          hero_image: "hero_image",
+          published: true
+        },
+        id: "1"
+      },
+      {
+        fields: {
+          title: "Title 2",
+          preview: "text 2",
+          content: "content 2",
+          author: "author 2",
+          date: "date 2",
+          hero_image: "hero_image_2",
+          published: true
+        },
+        id: "2"
+      }
+    ];
+    const div = document.createElement("div");
+    ReactDOM.render(
+      <StaticRouter context={{}}>
+        <Blog {...props} />
+      </StaticRouter>,
+      div
+    );
+  });
+
   it("doesn't pass on props from unpublished blogPosts", () => {
-    const props = {
-      blogPosts: [
-        {
-          fields: {
-            title: "Title",
-            preview: "text",
-            content: "content",
-            author: "author",
-            date: "date",
-            hero_image: "hero_image",
-            published: false
-          },
-          id: "1"
-        }
-      ],
-      fetchingBlogPosts: false,
-      fetchBlogPosts: jest.fn(),
-      fetchTagLine: jest.fn(),
-      error: null,
-      tagLine: "Tagline"
-    };
-    const expectedProps = {
-      author: "author",
-      date: "date",
-      hero_image: "hero_image",
-      preview: "text",
-      title: "Title"
-    };
+    props.blogPosts = [
+      {
+        fields: {
+          title: "Title",
+          preview: "text",
+          content: "content",
+          author: "author",
+          date: "date",
+          hero_image: "hero_image",
+          published: false
+        },
+        id: "1"
+      }
+    ];
     const component = shallow(<Blog {...props} />);
     expect(component.find("section").text()).toEqual("No posts found");
   });
   it("renders No posts found when there are no blogPosts in the props", () => {
-    const props = {
-      blogPosts: [],
-      fetchingBlogPosts: false,
-      fetchBlogPosts: jest.fn(),
-      fetchTagLine: jest.fn(),
-      error: null,
-      tagLine: "Tagline"
-    };
-
     const component = shallow(<Blog {...props} />);
     expect(component.find("section").text()).toEqual("No posts found");
   });
   it("renders Loading while fetching blog posts", () => {
-    const props = {
-      blogPosts: [],
-      fetchingBlogPosts: true,
-      fetchBlogPosts: jest.fn(),
-      fetchTagLine: jest.fn(),
-      error: null,
-      tagLine: "Tagline"
-    };
+    props.fetchingBlogPosts = true;
+
     const component = shallow(<Blog {...props} />);
     expect(component.find("section").text()).toEqual("Loading");
   });
   it("renders error message when there is an error", () => {
-    const props = {
-      blogPosts: [],
-      fetchingBlogPosts: false,
-      fetchBlogPosts: jest.fn(),
-      fetchTagLine: jest.fn(),
-      error: "Standard Error",
-      tagLine: "Tagline"
-    };
+    props.error = "Standard Error";
+
     const component = shallow(<Blog {...props} />);
     expect(component.find("section").text()).toEqual("Standard Error");
   });

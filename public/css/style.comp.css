@@ -143,8 +143,7 @@ body {
     width: 100%; }
   .post__header-image {
     border-top-left-radius: 0.5rem;
-    border-top-right-radius: 0.5rem;
-    border-bottom: 1px solid #f7971e; }
+    border-top-right-radius: 0.5rem; }
 
 .post__media-info {
   margin-top: 5rem;
@@ -161,6 +160,9 @@ body {
 
 .post__media-gallery {
   margin: 2rem 0; }
+  .post__media-gallery--container {
+    display: flex;
+    justify-content: center; }
 
 .post__text {
   font-size: 1.2rem;

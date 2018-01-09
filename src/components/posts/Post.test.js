@@ -36,4 +36,14 @@ describe("Post", () => {
       div
     );
   });
+
+  it("renders with scripts", () => {
+    post.adscript = '{ "src": "//test.com" }';
+    ReactDOM.render(
+      <StaticRouter context={{}}>
+        <Post key={post.id} post={post} />
+      </StaticRouter>,
+      div
+    );
+  });
 });

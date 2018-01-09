@@ -7,9 +7,8 @@ import { Helmet } from "react-helmet";
 
 import PostPreview from "../posts/PostPreview.jsx";
 import Post from "../posts/Post.jsx";
-
-import * as actions from "../../actions";
 import Layout from "../layout/Layout.jsx";
+import * as actions from "../../actions";
 
 import "react-router-modal/css/react-router-modal.css";
 
@@ -19,62 +18,80 @@ export class Blog extends Component {
     this.props.fetchTagLine("blog");
   }
 
+  sortByDate = (a, b) => {
+    return (
+      new Date(Date.parse(b.fields.date)) - new Date(Date.parse(a.fields.date))
+    );
+  };
+
+  filterPublished = blogPost => {
+    if (blogPost.fields.published === true) {
+      return true;
+    }
+    return false;
+  };
+
+  createPosts = blogPost => {
+    let post = {
+      id: blogPost.id,
+      title: blogPost.fields.title,
+      preview: blogPost.fields.preview,
+      content: blogPost.fields.content,
+      author: blogPost.fields.author,
+      date: blogPost.fields.date,
+      hero_image: blogPost.fields.hero_image,
+      adscript: blogPost.fields.adscript,
+      url: this.props.location.pathname
+    };
+    return {
+      preview: <PostPreview key={blogPost.id} post={post} />,
+      full: (
+        <ModalRoute
+          key={`fullPost-${post.id}`}
+          path={`/blog/${post.id}`}
+          parentPath="/blog"
+        >
+          <Post post={post} />
+        </ModalRoute>
+      )
+    };
+  };
+
+  publishPosts = posts => {
+    if (posts.length > 0) {
+      let publishedPosts = [].concat.apply(
+        [<ModalContainer key="fullPostContainer" />],
+        posts.map(post => {
+          return Object.keys(post).map(function(key) {
+            return post[key];
+          });
+        })
+      );
+      return publishedPosts;
+    } else {
+      return <div>No posts found</div>;
+    }
+  };
   renderBlogPosts() {
     if (this.props.error) return <div>{this.props.error}</div>;
-    switch (this.props.fetchingBlogPosts) {
-      case true:
-        return <div>Loading</div>;
-      case false:
-        if (this.props.blogPosts.length > 0) {
-          const posts = this.props.blogPosts
-            .filter(blogPost => {
-              if (blogPost.fields.published === true) {
-                return true;
-              }
-              return false;
-            })
-            .map(blogPost => {
-              let post = {
-                id: blogPost.id,
-                title: blogPost.fields.title,
-                preview: blogPost.fields.preview,
-                content: blogPost.fields.content,
-                author: blogPost.fields.author,
-                date: blogPost.fields.date,
-                hero_image: blogPost.fields.hero_image,
-                scripts: blogPost.fields.scripts,
-                url: this.props.location.pathname
-              };
-              return {
-                preview: <PostPreview key={blogPost.id} post={post} />,
-                full: (
-                  <ModalRoute
-                    key={`fullPost-${post.id}`}
-                    path={`/blog/${post.id}`}
-                    parentPath="/blog"
-                  >
-                    <Post post={post} />
-                  </ModalRoute>
-                )
-              };
-            });
-          if (posts.length > 0) {
-            let publishedPosts = [].concat.apply(
-              [<ModalContainer key="fullPostContainer" />],
-              posts.map(post => {
-                return Object.keys(post).map(function(key) {
-                  return post[key];
-                });
-              })
-            );
-            return publishedPosts;
-          }
-        }
-        return <div>No posts found</div>;
-
-      default:
-        return <div>No posts found</div>;
+    if (this.props.fetchingBlogPosts) return <div>Loading</div>;
+    let renderElements;
+    if (this.props.blogPosts.length > 0) {
+      const posts = this.props.blogPosts
+        .sort((a, b) => {
+          return this.sortByDate(a, b);
+        })
+        .filter(blogPost => {
+          return this.filterPublished(blogPost);
+        })
+        .map(blogPost => {
+          return this.createPosts(blogPost);
+        });
+      renderElements = this.publishPosts(posts);
+    } else {
+      renderElements = <div>No posts found</div>;
     }
+    return renderElements;
   }
   render() {
     return (

@@ -43,7 +43,7 @@
     "redux-mock-store": "^1.4.0"
   },
   "scripts": {
-    "start": "node server/app.js",
+    "start": "node app.js",
     "build": "npm-run-all build:css build:js",
     "build:js": "react-scripts build",
     "test": "react-scripts test --env=jsdom",
@@ -51,6 +51,7 @@
     "eject": "react-scripts eject",
     "client": "react-scripts start",
     "dev": "npm-run-all -p start client",
+    "predeploy": "yarn build",
     "deploy": "gcloud app deploy",
     "watch:sass": "node-sass src/sass/main.scss src/index.css -w",
     "compile:sass": "node-sass src/sass/main.scss public/css/style.comp.css",

@@ -3,17 +3,16 @@ import PropTypes from "prop-types";
 import ReactHtmlParser from "react-html-parser";
 import { ShareButtons } from "react-share";
 import { Helmet } from "react-helmet";
-import ReactDOM from "react-dom";
 
 const { FacebookShareButton, TwitterShareButton } = ShareButtons;
 
 export class Post extends Component {
   componentDidMount() {
-    this.createScripts(this.props.post.scripts);
+    this.createScripts(this.props.post.adscript);
   }
-  createScripts(scripts) {
-    if (scripts) {
-      const newScripts = JSON.parse(scripts);
+  createScripts(adscript) {
+    if (adscript) {
+      const newScripts = JSON.parse(adscript);
       const script = document.createElement("script");
 
       script.src = newScripts.src;

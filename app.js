@@ -15,9 +15,10 @@ app.get("/api/posts", (req, res) => {
     res.send(data);
   });
 });
-app.use(express.static(`${__dirname}/../build`));
+app.use(express.static(`${__dirname}/build`));
+
 app.get("*", function(req, res) {
-  res.sendFile(`${__dirname}/../build/index.html`);
+  res.sendFile(`${__dirname}/build/index.html`);
 });
 
 app.listen(port, () => console.log(`Listening on port ${port}`));
