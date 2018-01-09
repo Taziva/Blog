@@ -42,6 +42,7 @@ export class Blog extends Component {
                 author: blogPost.fields.author,
                 date: blogPost.fields.date,
                 hero_image: blogPost.fields.hero_image,
+                scripts: blogPost.fields.scripts,
                 url: this.props.location.pathname
               };
               return {
