@@ -8,20 +8,20 @@ const { FacebookShareButton, TwitterShareButton } = ShareButtons;
 
 export class Post extends Component {
   componentDidMount() {
-    this.createScripts(this.props.post.adscript);
+    this.createScripts(this.props.post.fancy_script);
   }
-  createScripts(adscript) {
-    if (adscript) {
-      const newScripts = JSON.parse(adscript);
+  createScripts(fancy_script) {
+    if (fancy_script) {
       const script = document.createElement("script");
 
-      script.src = newScripts.src;
+      script.src = fancy_script;
       script.async = true;
       this.gallery.appendChild(script);
     } else {
       return;
     }
   }
+
   render() {
     return (
       <div className="post">
@@ -46,14 +46,17 @@ export class Post extends Component {
           </div>
           <div className="post__text">
             {ReactHtmlParser(this.props.post.content)}
-            <div className="post__media-gallery--container">
-              <div
-                className="post__media-gallery"
-                ref={gallery => {
-                  this.gallery = gallery;
-                }}
-              />
-            </div>
+            {/* if fancy widget is used on page */}
+            {this.props.post.fancy_script ? (
+              <div className="post__media-fancy--container">
+                <div
+                  className="post__media-fancy"
+                  ref={gallery => {
+                    this.gallery = gallery;
+                  }}
+                />
+              </div>
+            ) : null}
           </div>
         </div>
         <div className="post__footer">
@@ -87,6 +90,30 @@ export class Post extends Component {
             </TwitterShareButton>
           </div>
         </div>
+        {/* If shopstyle pictures are present; Not tested as it is vendor code*/}
+        <script>
+          {
+            !(function(doc, s, id) {
+              var e, p, cb;
+              if (!doc.getElementById(id)) {
+                e = doc.createElement(s);
+                e.id = id;
+                cb = new Date().getTime().toString();
+                p =
+                  "//shopsensewidget.shopstyle.com/look-widget-script/assets/build/look-widget-script.js?cb=" +
+                  cb;
+                e.src = p;
+                doc.body.appendChild(e);
+              }
+              /* istanbul ignore next */
+              if (typeof window.scLookWidget === "object") {
+                if (doc.readyState === "complete") {
+                  window.scLookWidget.init();
+                }
+              }
+            })(document, "script", "sc-look-widget-script")
+          }
+        </script>
       </div>
     );
   }
