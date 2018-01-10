@@ -7,6 +7,7 @@ import { ConnectedRouter } from "react-router-redux";
 import Blog from "./components/pages/Blog.jsx";
 import AboutMe from "./components/pages/AboutMe.jsx";
 import NotFoundPage from "./components/pages/NotFoundPage.jsx";
+import GoogleAnalyticsTracking from "./GoogleAnalyticsTracking";
 
 export default class App extends Component {
   render() {
@@ -17,9 +18,15 @@ export default class App extends Component {
             <Route exact path="/">
               <Redirect to="/blog" />
             </Route>
-            <Route path="/blog" component={Blog} />
-            <Route path="/about-me" component={AboutMe} />
-            <Route path="/*" component={NotFoundPage} />
+            <Route path="/blog" component={GoogleAnalyticsTracking(Blog)} />
+            <Route
+              path="/about-me"
+              component={GoogleAnalyticsTracking(AboutMe)}
+            />
+            <Route
+              path="/*"
+              component={GoogleAnalyticsTracking(NotFoundPage)}
+            />
           </Switch>
         </ConnectedRouter>
       </Provider>
