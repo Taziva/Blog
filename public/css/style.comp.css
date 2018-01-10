@@ -164,6 +164,10 @@ body {
     display: flex;
     justify-content: center; }
 
+.post__media-gallery {
+  display: flex;
+  justify-content: space-around; }
+
 .post__text {
   font-size: 1.2rem;
   color: #333;
