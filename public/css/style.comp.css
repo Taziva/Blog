@@ -158,9 +158,9 @@ body {
 .post__media-date {
   font-size: 1.5rem; }
 
-.post__media-gallery {
+.post__media-fancy {
   margin: 2rem 0; }
-  .post__media-gallery--container {
+  .post__media-fancy--container {
     display: flex;
     justify-content: center; }
 

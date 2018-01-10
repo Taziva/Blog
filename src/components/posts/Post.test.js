@@ -19,12 +19,13 @@ describe("Post", () => {
     post = {
       id: "1",
       title: "Hi",
-      content: "We're testing react components",
+      content:
+        "We're testing react components <div class='sc-look-widget'style='text-align: center' data-mobile-optimize='true' data-options='none'></div>",
       author: "Author McAuthorface",
       date: "2013-03-01",
       hero_image: "www.example.com",
       url: "/url",
-      adscript: '{ "src": "//test.com" }'
+      fancy_script: "fancy.example.com"
     };
   });
   it("renders with scripts without crashing", () => {
@@ -32,7 +33,7 @@ describe("Post", () => {
   });
 
   it("renders without adscripts without crashing", () => {
-    post.adscript = undefined;
+    post.fancy_script = undefined;
     renderPost();
   });
 

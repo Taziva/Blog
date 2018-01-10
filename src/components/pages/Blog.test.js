@@ -44,7 +44,8 @@ describe("Blog", () => {
           author: "author",
           date: "date",
           hero_image: "hero_image",
-          published
+          published,
+          fancy_script: "fancy.example.com"
         },
         id: `${x + 1}`
       });
@@ -74,7 +75,7 @@ describe("Blog", () => {
   it("passes on the right props to PostPreview", () => {
     props.blogPosts = pushBlogPosts(1);
     const expectedProps = {
-      adscript: undefined,
+      fancy_script: "fancy.example.com",
       author: "author",
       content: "content",
       date: "date",

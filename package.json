@@ -7,6 +7,7 @@
       "!**/build/**",
       "!**/coverage/**",
       "!src/registerServiceWorker.js",
+      "!src/externaljs",
       "!**/node_modules/**",
       "!**/vendor/**"
     ]
@@ -50,7 +51,7 @@
     "coverage": "react-scripts test --env=jsdom --coverage",
     "eject": "react-scripts eject",
     "client": "react-scripts start",
-    "dev": "npm-run-all -p start client",
+    "dev": "npm-run-all -p start client watch:sass",
     "predeploy": "yarn build",
     "deploy": "gcloud app deploy",
     "watch:sass": "node-sass src/sass/main.scss src/index.css -w",

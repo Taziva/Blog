@@ -40,7 +40,7 @@ export class Blog extends Component {
       author: blogPost.fields.author,
       date: blogPost.fields.date,
       hero_image: blogPost.fields.hero_image,
-      adscript: blogPost.fields.adscript,
+      fancy_script: blogPost.fields.fancy_script,
       url: this.props.location.pathname
     };
     return {
