@@ -21,7 +21,8 @@ const Nav = () => {
     </nav>
   );
 };
-const renderResponsiveMenu = () => {
+
+export const renderResponsiveMenu = () => {
   const x = document.getElementById("navBar");
   if (x.className === "nav") {
     x.className += " responsive";
