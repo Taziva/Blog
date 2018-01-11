@@ -179,6 +179,10 @@ body {
   background-image: linear-gradient(to right, #f7971e, #ffd200);
   -webkit-background-clip: text;
   color: transparent; }
+  @media only screen and (max-width: 599px) {
+    .post__header {
+      font-size: 3rem;
+      word-break: keep-all; } }
   .post__header-container {
     position: absolute;
     top: 40%;
@@ -189,19 +193,22 @@ body {
     @media only screen and (max-width: 599px) {
       .post__header-container {
         position: relative;
-        top: none;
-        left: none; } }
+        transform: none;
+        position: relative;
+        top: 0;
+        left: 0;
+        padding: 2rem;
+        padding-bottom: 2rem; } }
   .post__header-image {
     border-top-left-radius: 0.5rem;
     border-top-right-radius: 0.5rem; }
 
 .post__media-info {
-  margin-top: 5rem;
-  margin-bottom: 5rem;
+  margin-top: 5rem 0;
   color: #777; }
   @media only screen and (max-width: 599px) {
     .post__media-info {
-      margin-top: -8rem; } }
+      margin: 1rem 0; } }
 
 .post__media-author {
   border-bottom: 1px solid #f7971e;
@@ -388,6 +395,10 @@ body {
   width: 75vw;
   height: calc(100vh - 10rem);
   overflow-y: scroll; }
+  @media only screen and (max-width: 599px) {
+    .react-router-modal__modal {
+      width: 90vw;
+      height: calc(100vh - 5rem); } }
 
 @media only screen and (max-width: 599px) {
   .SocialMediaShareButton--facebook {

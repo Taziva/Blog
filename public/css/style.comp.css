@@ -59,11 +59,19 @@ body {
     display: block;
     font-size: 6rem;
     letter-spacing: 3.5rem; }
+    @media only screen and (max-width: 599px) {
+      .heading-primary--main {
+        font-size: 3.5rem;
+        letter-spacing: 1rem;
+        border-bottom: 0.5rem solid #fff; } }
   .heading-primary--sub {
     animation: slideInRight 1s ease-out;
     display: block;
     font-size: 2rem;
     letter-spacing: 1.75rem; }
+    @media only screen and (max-width: 599px) {
+      .heading-primary--sub {
+        display: none; } }
 
 .u-center-text {
   text-align: center !important; }
@@ -90,14 +98,32 @@ body {
   margin-top: 1.5rem !important; }
 
 .post-preview {
-  min-height: 40rem;
   width: 75%;
   padding-bottom: 7rem;
-  border-radius: 0.3rem; }
+  border-radius: 0.3rem;
+  min-height: 40rem;
+  background-image: linear-gradient(105deg, rgba(255, 255, 255, 0.92) 0%, rgba(255, 255, 255, 0.92) 50%, transparent 50%);
+  background-size: cover;
+  position: relative; }
   @media only screen and (max-width: 599px) {
     .post-preview {
+      background-image: none;
+      background-color: rgba(255, 255, 255, 0.9);
+      min-height: 0;
       width: 100%;
       text-align: center; } }
+  .post-preview__background {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    z-index: -1;
+    overflow: hidden; }
+    .post-preview__background-img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover; }
   .post-preview__header {
     font-size: 2rem;
     margin-bottom: 2rem;
@@ -266,7 +292,7 @@ body {
     .nav__collapse-button {
       float: right;
       display: inline;
-      font-size: 4rem;
+      font-size: 5rem;
       color: #fff;
       text-decoration: none; } }
 
@@ -305,10 +331,20 @@ body {
   background-size: cover;
   border-radius: 0.3rem;
   text-align: center; }
+  @media only screen and (max-width: 599px) {
+    .about-me {
+      flex-direction: column-reverse;
+      align-items: center; } }
   .about-me__content {
     width: 50%; }
+    @media only screen and (max-width: 599px) {
+      .about-me__content {
+        width: 90%; } }
   .about-me__header {
     font-size: 3rem; }
+    @media only screen and (max-width: 599px) {
+      .about-me__header {
+        margin-top: 2rem; } }
   .about-me__body {
     font-size: 1.4rem;
     padding: 3rem;
@@ -330,15 +366,17 @@ body {
 .header__text-box {
   text-align: center;
   margin-bottom: 10rem; }
+  @media only screen and (max-width: 599px) {
+    .header__text-box {
+      margin-bottom: 3rem; } }
 
 .card {
   box-shadow: 0 1.5rem 3rem rgba(0, 0, 0, 0.2);
   padding: 4rem 7rem;
-  background-color: #f7f7f7;
   margin-bottom: 5rem; }
   @media only screen and (max-width: 599px) {
     .card {
-      padding: 2rem; } }
+      padding: 2rem 3rem; } }
 
 .react-router-modal__backdrop {
   background-color: rgba(0, 0, 0, 0.8) !important;

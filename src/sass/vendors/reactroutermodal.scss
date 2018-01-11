@@ -7,6 +7,9 @@
   border: none !important;
   width: 75vw;
   height: calc(100vh - 10rem);
-  // margin-top: 5rem;
   overflow-y: scroll;
+  @include respond(phone-only) {
+    width: 90vw;
+    height: calc(100vh - 5rem);
+  }
 }
