@@ -13,11 +13,14 @@
   position: relative;
 
   @include respond(phone-only) {
-    background-image: none;
-    background-color: rgba(255, 255, 255, 0.9);
     min-height: 0;
     width: 100%;
-    text-align: center;
+    background-image: linear-gradient(
+      102.5deg,
+      rgba(255, 255, 255, 0.92) 0%,
+      rgba(255, 255, 255, 0.92) 55%,
+      transparent 55%
+    );
   }
   &__background {
     position: absolute;
@@ -43,11 +46,14 @@
     );
     -webkit-background-clip: text;
     color: transparent;
-    width: 40%;
+    width: 65%;
     margin-left: 0;
+    text-align: center;
     @include respond(phone-only) {
-      font-size: 2.5rem;
-      width: 100%;
+      font-size: 2rem;
+      width: 45%;
+      color: $color-primary;
+      text-align: left;
     }
   }
   &__body {
@@ -55,6 +61,7 @@
     width: 40%;
     margin-left: 0;
     @include respond(phone-only) {
+      display: none;
       font-size: 1.5rem;
       width: 100%;
       margin-bottom: 2rem;
@@ -74,6 +81,24 @@
         box-shadow: 0 1rem 2rem rgba(0, 0, 0, 0.15);
         transform: translateY(-2px);
       }
+      @include respond(phone-only) {
+        display: none;
+      }
+    }
+    &-phone-link {
+      display: none;
+      @include respond(phone-only) {
+        display: inline;
+        span {
+          position: absolute;
+          width: 100%;
+          height: 100%;
+          top: 0;
+          left: 0;
+
+          z-index: 1;
+        }
+      }
     }
     &-info {
       font-size: 1.2rem;
@@ -90,9 +115,6 @@
       color: transparent;
       width: 40%;
       margin-left: 0;
-      @include respond(phone-only) {
-        width: 100%;
-      }
     }
   }
 }

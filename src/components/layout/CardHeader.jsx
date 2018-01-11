@@ -2,7 +2,7 @@ import React from "react";
 import PropTypes from "prop-types";
 
 const CardHeader = ({ sectionName, title }) => {
-  return <h1 className={`${sectionName}__header u-center-text`}>{title}</h1>;
+  return <h1 className={`${sectionName}__header`}>{title}</h1>;
 };
 
 CardHeader.propTypes = {
