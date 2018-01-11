@@ -1,9 +1,38 @@
 .post-preview {
-  min-height: 40rem;
   width: 75%;
   padding-bottom: 7rem;
   border-radius: 0.3rem;
+  min-height: 40rem;
+  background-image: linear-gradient(
+    105deg,
+    rgba(255, 255, 255, 0.92) 0%,
+    rgba(255, 255, 255, 0.92) 50%,
+    transparent 50%
+  );
+  background-size: cover;
+  position: relative;
 
+  @include respond(phone-only) {
+    background-image: none;
+    background-color: rgba(255, 255, 255, 0.9);
+    min-height: 0;
+    width: 100%;
+    text-align: center;
+  }
+  &__background {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    z-index: -1;
+    overflow: hidden;
+    &-img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+  }
   &__header {
     font-size: 2rem;
     margin-bottom: 2rem;
@@ -16,11 +45,20 @@
     color: transparent;
     width: 40%;
     margin-left: 0;
+    @include respond(phone-only) {
+      font-size: 2.5rem;
+      width: 100%;
+    }
   }
   &__body {
     font-size: 1.2rem;
     width: 40%;
     margin-left: 0;
+    @include respond(phone-only) {
+      font-size: 1.5rem;
+      width: 100%;
+      margin-bottom: 2rem;
+    }
   }
   &__media {
     &-link a {
@@ -52,6 +90,9 @@
       color: transparent;
       width: 40%;
       margin-left: 0;
+      @include respond(phone-only) {
+        width: 100%;
+      }
     }
   }
 }

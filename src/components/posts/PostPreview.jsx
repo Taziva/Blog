@@ -4,17 +4,11 @@ import Card from "../layout/Card.jsx";
 import { Link } from "react-router-dom";
 
 const PostPreview = ({ post }) => {
-  const style = {
-    backgroundImage: renderBackground(post),
-    backgroundSize: "cover"
-  };
   return (
-    <Card
-      style={style}
-      title={post.title}
-      text={post.preview}
-      sectionName="post-preview"
-    >
+    <Card title={post.title} text={post.preview} sectionName="post-preview">
+      <div className="post-preview__background">
+        <img className="post-preview__background-img" src={post.hero_image} />
+      </div>
       <div className="post-preview__media-link">
         <Link to={`/blog/${post.id}`}>Read More &rarr;</Link>
       </div>
@@ -36,14 +30,10 @@ PostPreview.propTypes = {
   }).isRequired
 };
 
-const renderBackground = post => {
-  if (post.hero_image) {
-    return `linear-gradient(105deg, rgba(255,255,255,0.9) 0%, rgba(255,255,255,0.9) 50%, transparent 50%), url(${
-      post.hero_image
-    })`;
-  } else {
-    return "linear-gradient(105deg, rgba(255,255,255,0.9) 0%, rgba(255,255,255,0.9) 50%, transparent 50%), rgba(0,0,0,0)";
-  }
+const breakpoints = {
+  desktop: 1200,
+  tabletLan: 900,
+  tabletPort: 600,
+  phoneOnly: 599
 };
-
 export default PostPreview;
