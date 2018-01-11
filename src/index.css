@@ -59,11 +59,19 @@ body {
     display: block;
     font-size: 6rem;
     letter-spacing: 3.5rem; }
+    @media only screen and (max-width: 599px) {
+      .heading-primary--main {
+        font-size: 3.5rem;
+        letter-spacing: 1rem;
+        border-bottom: 0.5rem solid #fff; } }
   .heading-primary--sub {
     animation: slideInRight 1s ease-out;
     display: block;
     font-size: 2rem;
     letter-spacing: 1.75rem; }
+    @media only screen and (max-width: 599px) {
+      .heading-primary--sub {
+        display: none; } }
 
 .u-center-text {
   text-align: center !important; }
@@ -284,7 +292,7 @@ body {
     .nav__collapse-button {
       float: right;
       display: inline;
-      font-size: 4rem;
+      font-size: 5rem;
       color: #fff;
       text-decoration: none; } }
 
@@ -323,10 +331,20 @@ body {
   background-size: cover;
   border-radius: 0.3rem;
   text-align: center; }
+  @media only screen and (max-width: 599px) {
+    .about-me {
+      flex-direction: column-reverse;
+      align-items: center; } }
   .about-me__content {
     width: 50%; }
+    @media only screen and (max-width: 599px) {
+      .about-me__content {
+        width: 90%; } }
   .about-me__header {
     font-size: 3rem; }
+    @media only screen and (max-width: 599px) {
+      .about-me__header {
+        margin-top: 2rem; } }
   .about-me__body {
     font-size: 1.4rem;
     padding: 3rem;
@@ -348,6 +366,9 @@ body {
 .header__text-box {
   text-align: center;
   margin-bottom: 10rem; }
+  @media only screen and (max-width: 599px) {
+    .header__text-box {
+      margin-bottom: 3rem; } }
 
 .card {
   box-shadow: 0 1.5rem 3rem rgba(0, 0, 0, 0.2);

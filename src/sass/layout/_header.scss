@@ -2,5 +2,8 @@
   &__text-box {
     text-align: center;
     margin-bottom: 10rem;
+    @include respond(phone-only) {
+      margin-bottom: 3rem;
+    }
   }
 }
