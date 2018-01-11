@@ -17,6 +17,11 @@
     -webkit-background-clip: text;
     color: transparent;
 
+    @include respond(phone-only) {
+      font-size: 3rem;
+      word-break: keep-all;
+    }
+
     &-container {
       position: absolute;
       top: 40%;
@@ -26,8 +31,12 @@
       width: 100%;
       @include respond(phone-only) {
         position: relative;
-        top: none;
-        left: none;
+        transform: none;
+        position: relative;
+        top: 0;
+        left: 0;
+        padding: 2rem;
+        padding-bottom: 2rem;
       }
     }
     &-image {
@@ -37,12 +46,10 @@
   }
   &__media {
     &-info {
-      margin-top: 5rem;
-
-      margin-bottom: 5rem;
+      margin-top: 5rem 0;
       color: $color-grey-dark;
       @include respond(phone-only) {
-        margin-top: -8rem;
+        margin: 1rem 0;
       }
     }
     &-author {
