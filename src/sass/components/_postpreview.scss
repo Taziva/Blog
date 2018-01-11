@@ -4,6 +4,11 @@
   padding-bottom: 7rem;
   border-radius: 0.3rem;
 
+  @include respond(phone-only) {
+    width: 100%;
+    text-align: center;
+  }
+
   &__header {
     font-size: 2rem;
     margin-bottom: 2rem;
@@ -16,11 +21,20 @@
     color: transparent;
     width: 40%;
     margin-left: 0;
+    @include respond(phone-only) {
+      font-size: 2.5rem;
+      width: 100%;
+    }
   }
   &__body {
     font-size: 1.2rem;
     width: 40%;
     margin-left: 0;
+    @include respond(phone-only) {
+      font-size: 1.5rem;
+      width: 100%;
+      margin-bottom: 2rem;
+    }
   }
   &__media {
     &-link a {
@@ -52,6 +66,9 @@
       color: transparent;
       width: 40%;
       margin-left: 0;
+      @include respond(phone-only) {
+        width: 100%;
+      }
     }
   }
 }

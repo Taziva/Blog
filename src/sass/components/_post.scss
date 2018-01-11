@@ -2,6 +2,9 @@
   &__content {
     padding: 0 20rem;
     position: relative;
+    @include respond(phone-only) {
+      padding: 0 3rem;
+    }
   }
   &__header {
     font-size: 5rem;
@@ -13,6 +16,7 @@
     );
     -webkit-background-clip: text;
     color: transparent;
+
     &-container {
       position: absolute;
       top: 40%;
@@ -20,6 +24,11 @@
       transform: translate(-50%, -50%);
       background-color: rgba(255, 255, 255, 0.9);
       width: 100%;
+      @include respond(phone-only) {
+        position: relative;
+        top: none;
+        left: none;
+      }
     }
     &-image {
       border-top-left-radius: 0.5rem;
@@ -32,6 +41,9 @@
 
       margin-bottom: 5rem;
       color: $color-grey-dark;
+      @include respond(phone-only) {
+        margin-top: -8rem;
+      }
     }
     &-author {
       border-bottom: 1px solid $color-primary;
@@ -65,9 +77,26 @@
     padding: 0 20rem;
     display: flex;
     justify-content: space-between;
+
+    @include respond(phone-only) {
+      flex-direction: column;
+      padding: 0 3rem;
+      align-items: center;
+      justify-content: space-around;
+    }
+
+    &-social {
+      @include respond(phone-only) {
+        display: flex;
+        justify-content: center;
+      }
+    }
     &-icon {
       height: 4rem;
       width: 4rem;
+      @include respond(phone-only) {
+        margin: 0 2rem;
+      }
     }
   }
   &__share-button {

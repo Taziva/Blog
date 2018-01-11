@@ -1,0 +1,5 @@
+.SocialMediaShareButton--facebook {
+  @include respond(phone-only) {
+    margin-left: 1.5rem;
+  }
+}

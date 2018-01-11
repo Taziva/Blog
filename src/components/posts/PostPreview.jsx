@@ -36,13 +36,29 @@ PostPreview.propTypes = {
   }).isRequired
 };
 
+const breakpoints = {
+  desktop: 1200,
+  tabletLan: 900,
+  tabletPort: 600,
+  phoneOnly: 599
+};
+
 const renderBackground = post => {
   if (post.hero_image) {
-    return `linear-gradient(105deg, rgba(255,255,255,0.9) 0%, rgba(255,255,255,0.9) 50%, transparent 50%), url(${
-      post.hero_image
-    })`;
+    let background;
+    if (window.innerWidth < breakpoints.tabletLan) {
+      background = `linear-gradient(105deg, rgba(255,255,255,0.95) 0%, rgba(255,255,255,0.95) ), url(${
+        post.hero_image
+      })`;
+    } else {
+      background = `linear-gradient(105deg, rgba(255,255,255,0.9) 0%, rgba(255,255,255,0.9) 50%, transparent 50%), url(${
+        post.hero_image
+      })`;
+    }
+    console.log(background);
+    return background;
   } else {
-    return "linear-gradient(105deg, rgba(255,255,255,0.9) 0%, rgba(255,255,255,0.9) 50%, transparent 50%), rgba(0,0,0,0)";
+    return "linear-gradient(105deg, rgba(255,255,255,0.9) 0%, rgba(255,255,255,0.9) 50%, transparent 50%), #f7971e)";
   }
 };
 

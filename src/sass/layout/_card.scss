@@ -3,4 +3,7 @@
   padding: 4rem 7rem;
   background-color: $color-grey-light-1;
   margin-bottom: 5rem;
+  @include respond(phone-only) {
+    padding: 2rem;
+  }
 }
