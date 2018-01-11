@@ -7,8 +7,15 @@ const PostPreview = ({ post }) => {
   return (
     <Card title={post.title} text={post.preview} sectionName="post-preview">
       <div className="post-preview__background">
-        <img className="post-preview__background-img" src={post.hero_image} />
+        <img
+          className="post-preview__background-img"
+          src={post.hero_image}
+          alt="Background"
+        />
       </div>
+      <Link className="post-preview__media-phone-link" to={`/blog/${post.id}`}>
+        <span />
+      </Link>
       <div className="post-preview__media-link">
         <Link to={`/blog/${post.id}`}>Read More &rarr;</Link>
       </div>
@@ -30,10 +37,4 @@ PostPreview.propTypes = {
   }).isRequired
 };
 
-const breakpoints = {
-  desktop: 1200,
-  tabletLan: 900,
-  tabletPort: 600,
-  phoneOnly: 599
-};
 export default PostPreview;
