@@ -5,7 +5,7 @@ import { Link } from "react-router-dom";
 
 const PostPreview = ({ post }) => {
   return (
-    <Card title={post.title} text={post.preview} sectionName="post-preview">
+    <Card title={post.title} text={post.summary} sectionName="post-preview">
       <div className="post-preview__background">
         <img
           className="post-preview__background-img"
@@ -17,10 +17,12 @@ const PostPreview = ({ post }) => {
         <span />
       </Link>
       <div className="post-preview__media-link">
-        <Link to={`/blog/${post.id}`}>Read More &rarr;</Link>
+        <Link to={`/blog/${post.id}`} className="btn-link">
+          Read More &rarr;
+        </Link>
       </div>
       <div className="post-preview__media-info u-margin-top-small">
-        <p className="post-preview__media-author">{post.author}</p>
+        <p className="post-preview__media-author">{`By ${post.author}`}</p>
         <p className="post-preview__media-date">{post.date}</p>
       </div>
     </Card>
@@ -28,9 +30,9 @@ const PostPreview = ({ post }) => {
 };
 PostPreview.propTypes = {
   post: PropTypes.shape({
-    id: PropTypes.string.isRequired,
+    id: PropTypes.number.isRequired,
     title: PropTypes.string.isRequired,
-    preview: PropTypes.string.isRequired,
+    summary: PropTypes.string.isRequired,
     author: PropTypes.string.isRequired,
     date: PropTypes.string.isRequired,
     hero_image: PropTypes.string

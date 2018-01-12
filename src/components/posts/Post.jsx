@@ -3,6 +3,7 @@ import PropTypes from "prop-types";
 import ReactHtmlParser from "react-html-parser";
 import { ShareButtons } from "react-share";
 import { Helmet } from "react-helmet";
+import { Link } from "react-router-dom";
 
 const { FacebookShareButton, TwitterShareButton } = ShareButtons;
 
@@ -28,6 +29,7 @@ export class Post extends Component {
         <Helmet>
           <title>Blog | {this.props.post.title}</title>
         </Helmet>
+
         <img
           className="post__header-image"
           src={this.props.post.hero_image}
@@ -38,6 +40,11 @@ export class Post extends Component {
           <h1 className="post__header u-center-text">
             {this.props.post.title}
           </h1>
+        </div>
+        <div className="post__close">
+          <Link to="/blog" className="btn-link">
+            &larr; Back to Blog
+          </Link>
         </div>
         <div className="post__content">
           <div className="post__media-info u-center-text">
@@ -57,6 +64,11 @@ export class Post extends Component {
                 />
               </div>
             ) : null}
+            <div className="post__close">
+              <Link to="/blog" className="btn-link">
+                &larr; Back to Blog
+              </Link>
+            </div>
           </div>
         </div>
         <div className="post__footer">
@@ -121,7 +133,7 @@ export class Post extends Component {
 
 Post.propTypes = {
   post: PropTypes.shape({
-    id: PropTypes.string.isRequired,
+    id: PropTypes.number.isRequired,
     title: PropTypes.string.isRequired,
     content: PropTypes.string.isRequired,
     author: PropTypes.string.isRequired,

@@ -21,6 +21,8 @@
     "enzyme": "^3.3.0",
     "enzyme-adapter-react-16": "^1.1.1",
     "express": "^4.16.2",
+    "firebase-admin": "^5.7.0",
+    "flamelink": "^0.13.4",
     "history": "^4.7.2",
     "react": "^16.2.0",
     "react-dom": "^16.2.0",
@@ -53,13 +55,16 @@
     "coverage": "react-scripts test --env=jsdom --coverage",
     "eject": "react-scripts eject",
     "client": "react-scripts start",
-    "dev": "npm-run-all -p start client watch:sass",
+    "server:dev": "nodemon app.js",
+    "dev": "npm-run-all -p server:dev client watch:sass",
     "predeploy": "yarn build",
     "deploy": "gcloud app deploy",
     "watch:sass": "node-sass src/sass/main.scss src/index.css -w",
     "compile:sass": "node-sass src/sass/main.scss public/css/style.comp.css",
-    "prefix:css": "postcss --use autoprefixer -b 'last 10 versions' public/css/style.comp.css -o  public/css/style.prefix.css",
-    "compress:css": "node-sass public/css/style.prefix.css src/index.css --output-style compressed",
+    "prefix:css":
+      "postcss --use autoprefixer -b 'last 10 versions' public/css/style.comp.css -o  public/css/style.prefix.css",
+    "compress:css":
+      "node-sass public/css/style.prefix.css src/index.css --output-style compressed",
     "build:css": "npm-run-all compile:sass prefix:css compress:css"
   }
 }
