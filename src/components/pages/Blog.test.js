@@ -34,6 +34,7 @@ describe("Blog", () => {
   let props;
   let blogPosts;
   let date;
+
   const pushBlogPosts = (i = 1, status = "published") => {
     blogPosts = [];
     for (var x = 0; x < i; x++) {
@@ -64,6 +65,7 @@ describe("Blog", () => {
       tagLine: "tagLine"
     };
   });
+
   it("renders without crashing", () => {
     const div = document.createElement("div");
     ReactDOM.render(
@@ -72,27 +74,6 @@ describe("Blog", () => {
       </StaticRouter>,
       div
     );
-  });
-  it("passes on the right props to PostPreview", () => {
-    props.blogPosts = pushBlogPosts(1);
-    const expectedProps = {
-      fancy_script: "fancy.example.com",
-      author: "author",
-      content: "content",
-      date: "01/01/2001",
-      hero_image: "heroImageUrl",
-      id: 1,
-      summary: "text",
-      title: "Title",
-      url: "/pathname"
-    };
-    const component = shallow(<Blog {...props} />);
-    expect(
-      component
-        .find("section")
-        .find(PostPreview)
-        .prop("post")
-    ).toEqual(expect.objectContaining(expectedProps));
   });
 
   it("renders multiple Posts", () => {
@@ -105,41 +86,62 @@ describe("Blog", () => {
       div
     );
   });
-
-  it("doesn't pass on props from unpublished blogPosts", () => {
-    props.blogPosts = pushBlogPosts(1, "draft");
-    const component = shallow(<Blog {...props} />);
-    expect(component.find("section").text()).toEqual("No posts found");
-  });
-  it("renders No posts found when there are no blogPosts in the props", () => {
-    const component = shallow(<Blog {...props} />);
-    expect(component.find("section").text()).toEqual("No posts found");
-  });
-  it("renders Loading while fetching blog posts", () => {
-    props.fetchingBlogPosts = true;
-
-    const component = shallow(<Blog {...props} />);
-    expect(component.find("section").text()).toEqual("Loading");
-  });
-  it("renders error message when there is an error", () => {
-    props.error = "Standard Error";
-
-    const component = shallow(<Blog {...props} />);
-    expect(component.find("section").text()).toEqual("Standard Error");
-  });
-  it("renders double digit dates", () => {
-    date = "2001-10-10T00:00:00.000Z";
-    props.blogPosts = pushBlogPosts(1);
-
-    const expectedProps = {
-      date: "10/10/2001"
-    };
-    const component = shallow(<Blog {...props} />);
-    expect(
-      component
+  describe("Component", () => {
+    const postPreviewProps = component => {
+      return component
         .find("section")
         .find(PostPreview)
-        .prop("post")
-    ).toEqual(expect.objectContaining(expectedProps));
+        .prop("post");
+    };
+
+    it("passes on the right props to PostPreview", () => {
+      props.blogPosts = pushBlogPosts(1);
+      const expectedProps = {
+        fancy_script: "fancy.example.com",
+        author: "author",
+        content: "content",
+        date: "01/01/2001",
+        hero_image: "heroImageUrl",
+        id: 1,
+        summary: "text",
+        title: "Title",
+        url: "/pathname"
+      };
+      const component = shallow(<Blog {...props} />);
+      expect(postPreviewProps(component)).toEqual(
+        expect.objectContaining(expectedProps)
+      );
+    });
+
+    it("doesn't pass on props from unpublished blogPosts", () => {
+      props.blogPosts = pushBlogPosts(1, "draft");
+      const component = shallow(<Blog {...props} />);
+      expect(component.find("section").text()).toEqual("No posts found");
+    });
+    it("renders No posts found when there are no blogPosts in the props", () => {
+      const component = shallow(<Blog {...props} />);
+      expect(component.find("section").text()).toEqual("No posts found");
+    });
+    it("renders Loading while fetching blog posts", () => {
+      props.fetchingBlogPosts = true;
+      const component = shallow(<Blog {...props} />);
+      expect(component.find("section").text()).toEqual("Loading");
+    });
+    it("renders error message when there is an error", () => {
+      props.error = "Standard Error";
+      const component = shallow(<Blog {...props} />);
+      expect(component.find("section").text()).toEqual("Standard Error");
+    });
+    it("renders double digit dates", () => {
+      date = "2001-10-10T00:00:00.000Z";
+      props.blogPosts = pushBlogPosts(1);
+      const component = shallow(<Blog {...props} />);
+      const expectedProps = {
+        date: "10/10/2001"
+      };
+      expect(postPreviewProps(component)).toEqual(
+        expect.objectContaining(expectedProps)
+      );
+    });
   });
 });
