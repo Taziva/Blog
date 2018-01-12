@@ -36,16 +36,17 @@ export class Post extends Component {
           style={{ width: "100%" }}
           alt="post hero"
         />
-        <div className="post__header-container">
-          <h1 className="post__header u-center-text">
-            {this.props.post.title}
-          </h1>
-        </div>
         <div className="post__close">
           <Link to="/blog" className="btn-link">
             &larr; Back to Blog
           </Link>
         </div>
+        <div className="post__header-container">
+          <h1 className="post__header u-center-text">
+            {this.props.post.title}
+          </h1>
+        </div>
+
         <div className="post__content">
           <div className="post__media-info u-center-text">
             <p className="post__media-author">By {this.props.post.author}</p>

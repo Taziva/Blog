@@ -37,19 +37,19 @@ const POSTS_URL = `https://www.pushtable.com/api/firestore/our-blind-mouse-blog/
   process.env.NODE_ENV
 }?auth=${process.env.REACT_APP_PUSHTABLE_API_KEY}`;
 
-app.get("/api/posts", (req, res) => {
-  cms.content
-    .get("blogContent", { populate: [{ field: "heroImage" }] })
-    .then(blogContent => {
-      let posts = [];
-      for (var key in blogContent) {
-        posts.push(blogContent[key]);
-      }
-      console.log(posts);
-
-      res.send(posts);
-    })
-    .catch(error => console.log(error.message));
+app.get("/api/posts", async (req, res) => {
+  try {
+    const blogContent = await cms.content.get("blogContent", {
+      populate: [{ field: "heroImage" }]
+    });
+    let posts = [];
+    for (var key in blogContent) {
+      posts.push(blogContent[key]);
+    }
+    res.send(posts);
+  } catch (error) {
+    res.send(error);
+  }
 });
 app.use(express.static(`${__dirname}/build`));
 

@@ -22,8 +22,8 @@ body {
     font-size: 6rem;
     letter-spacing: 3.5rem;
     @include respond(phone-only) {
-      font-size: 3.5rem;
-      letter-spacing: 1rem;
+      font-size: 3rem;
+      letter-spacing: 0.5rem;
       border-bottom: 0.5rem solid #fff;
     }
   }

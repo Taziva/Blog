@@ -5,7 +5,7 @@ import Layout from "../layout/Layout.jsx";
 export default class AboutMe extends Component {
   render() {
     return (
-      <Layout pageTitle="About Me" tagLine="If you wanna know me">
+      <Layout pageTitle="About" tagLine="If you wanna know me">
         <Card sectionName="about-me" title="About Me" text={text}>
           <img
             className="about-me__media-image"
