@@ -1,6 +1,7 @@
 import React from "react";
 import NavBrand from "./NavBrand.jsx";
 import NavLinks from "./NavLinks.jsx";
+import { FaBars } from "react-icons/lib/fa";
 
 const Nav = () => {
   return (
@@ -14,7 +15,7 @@ const Nav = () => {
             renderResponsiveMenu();
           }}
         >
-          &#9776;
+          <FaBars />
         </a>
       </div>
       <NavLinks />

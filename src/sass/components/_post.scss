@@ -2,6 +2,7 @@
   &__close {
     margin: 2rem 0;
     text-align: center;
+    color: $color-secondary;
     @include respond(phone-only) {
       margin-top: 0;
       margin-bottom: 1rem;
@@ -43,8 +44,7 @@
         position: relative;
         top: 0;
         left: 0;
-        padding: 2rem;
-        padding-bottom: 0;
+        padding: 0 2rem;
       }
     }
     &-image {
