@@ -117,7 +117,8 @@ body {
     height: 100%;
     width: 100%;
     z-index: -1;
-    overflow: hidden; }
+    overflow: hidden;
+    border-radius: 0.3rem; }
     .post-preview__background-img {
       width: 100%;
       height: 100%;
@@ -128,7 +129,7 @@ body {
     background-image: linear-gradient(to right, #f7971e, #ffd200);
     -webkit-background-clip: text;
     color: transparent;
-    width: 65%;
+    width: 40%;
     margin-left: 0;
     text-align: center; }
     @media only screen and (max-width: 599px) {
@@ -147,17 +148,9 @@ body {
         font-size: 1.5rem;
         width: 100%;
         margin-bottom: 2rem; } }
-  .post-preview__media-link a {
-    font-size: 1.5rem;
-    color: #f7971e; }
-    .post-preview__media-link a:hover {
-      background-image: linear-gradient(to right, #f7971e, #ffd200);
-      color: #fff;
-      box-shadow: 0 1rem 2rem rgba(0, 0, 0, 0.15);
-      transform: translateY(-2px); }
-    @media only screen and (max-width: 599px) {
-      .post-preview__media-link a {
-        display: none; } }
+  @media only screen and (max-width: 599px) {
+    .post-preview__media-link a {
+      display: none; } }
   .post-preview__media-phone-link {
     display: none; }
     @media only screen and (max-width: 599px) {
@@ -172,6 +165,9 @@ body {
           z-index: 1; } }
   .post-preview__media-info {
     font-size: 1.2rem; }
+    @media only screen and (max-width: 599px) {
+      .post-preview__media-info {
+        width: 40%; } }
   .post-preview__media-date {
     font-size: 1.5rem;
     margin-bottom: 2rem;
@@ -180,6 +176,18 @@ body {
     color: transparent;
     width: 40%;
     margin-left: 0; }
+    @media only screen and (max-width: 599px) {
+      .post-preview__media-date {
+        color: #f7971e;
+        font-size: 1.2rem; } }
+
+.post__close {
+  margin: 2rem 0;
+  text-align: center; }
+  @media only screen and (max-width: 599px) {
+    .post__close {
+      margin-top: 0;
+      margin-bottom: 1rem; } }
 
 .post__content {
   padding: 0 20rem;
@@ -212,7 +220,7 @@ body {
         top: 0;
         left: 0;
         padding: 2rem;
-        padding-bottom: 2rem; } }
+        padding-bottom: 0; } }
   .post__header-image {
     border-top-left-radius: 0.5rem;
     border-top-right-radius: 0.5rem; }
@@ -300,8 +308,10 @@ body {
   .nav__links {
     list-style: none;
     display: flex; }
-  .nav__collapse-button {
-    display: none; }
+  .nav__collapse {
+    color: #fff; }
+    .nav__collapse-button {
+      display: none; }
 
 /* When the screen is less than 600 pixels wide, hide all links, except for the first one ("Home"). Show the link that contains should open and close the nav (.icon) */
 @media screen and (max-width: 600px) {
@@ -314,6 +324,7 @@ body {
       float: right;
       display: inline;
       font-size: 5rem;
+      line-height: 1.89;
       color: #fff;
       text-decoration: none; } }
 
@@ -383,6 +394,15 @@ body {
   align-items: center; }
   .blog-posts:last-child {
     margin-bottom: 5rem; }
+
+.btn-link {
+  font-size: 1.5rem;
+  color: #f7971e; }
+  .btn-link:hover {
+    background-image: linear-gradient(to right, #f7971e, #ffd200);
+    color: #fff;
+    box-shadow: 0 1rem 2rem rgba(0, 0, 0, 0.15);
+    transform: translateY(-2px); }
 
 .header__text-box {
   text-align: center;

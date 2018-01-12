@@ -20,27 +20,42 @@ export class Blog extends Component {
 
   sortByDate = (a, b) => {
     return (
-      new Date(Date.parse(b.fields.date)) - new Date(Date.parse(a.fields.date))
+      this.parseDate(b.__meta__.createdDate) -
+      this.parseDate(a.__meta__.createdDate)
     );
   };
-
+  parseDate = date => {
+    return new Date(date);
+  };
   filterPublished = blogPost => {
-    if (blogPost.fields.published === true) {
+    if (blogPost.status === "published") {
       return true;
     }
     return false;
   };
-
+  formatDate = date => {
+    let d = this.parseDate(date);
+    let dd = d.getDate();
+    let mm = d.getMonth() + 1;
+    let yyyy = d.getFullYear();
+    if (dd < 10) {
+      dd = "0" + dd;
+    }
+    if (mm < 10) {
+      mm = "0" + mm;
+    }
+    return `${dd}/${mm}/${yyyy}`;
+  };
   createPosts = blogPost => {
     let post = {
       id: blogPost.id,
-      title: blogPost.fields.title,
-      preview: blogPost.fields.preview,
-      content: blogPost.fields.content,
-      author: blogPost.fields.author,
-      date: blogPost.fields.date,
-      hero_image: blogPost.fields.hero_image,
-      fancy_script: blogPost.fields.fancy_script,
+      title: blogPost.title,
+      summary: blogPost.summary,
+      content: blogPost.content,
+      author: blogPost.author,
+      date: this.formatDate(blogPost.date),
+      hero_image: blogPost.heroImage[0].url,
+      fancy_script: blogPost.fancyScript,
       url: this.props.location.pathname
     };
     return {

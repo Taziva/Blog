@@ -17,7 +17,7 @@ describe("Post", () => {
   beforeEach(() => {
     div = document.createElement("div");
     post = {
-      id: "1",
+      id: 1,
       title: "Hi",
       content:
         "We're testing react components <div class='sc-look-widget'style='text-align: center' data-mobile-optimize='true' data-options='none'></div>",
