@@ -5,4 +5,7 @@
   @include respond(phone-only) {
     padding: 2rem 3rem;
   }
+  @include respond(tablet-portrait-up) {
+    padding: 3rem 3.5rem;
+  }
 }

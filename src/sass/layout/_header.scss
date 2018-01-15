@@ -5,5 +5,8 @@
     @include respond(phone-only) {
       margin-bottom: 3rem;
     }
+    @include respond(tablet-portrait-up) {
+      margin-bottom: 5rem;
+    }
   }
 }
