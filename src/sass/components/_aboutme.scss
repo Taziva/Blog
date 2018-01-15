@@ -13,12 +13,45 @@
   @include respond(phone-only) {
     flex-direction: column-reverse;
     align-items: center;
+    background-image: linear-gradient(
+        to right bottom,
+        rgba(255, 255, 255, 0.9),
+        rgba(255, 255, 255, 0.9)
+      ),
+      url("./images/bg-aboutme.jpg");
   }
-
+  @include respond(tablet-portrait-up) {
+    flex-direction: column-reverse;
+    align-items: center;
+    background-image: linear-gradient(
+        to right bottom,
+        rgba(255, 255, 255, 0.9),
+        rgba(255, 255, 255, 0.9)
+      ),
+      url("./images/bg-aboutme.jpg");
+  }
+  @include respond(tablet-landscape-up) {
+    flex-direction: row;
+    align-items: center;
+    background-image: linear-gradient(
+        to right bottom,
+        rgba(255, 255, 255, 0.9),
+        rgba(255, 255, 255, 0.9)
+      ),
+      url("./images/bg-aboutme.jpg");
+  }
   &__content {
-    width: 50%;
     @include respond(phone-only) {
       width: 90%;
+    }
+    @include respond(tablet-portrait-up) {
+      width: 90%;
+    }
+    @include respond(tablet-landscape-up) {
+      width: 70%;
+    }
+    @include respond(tablet-landscape-up) {
+      width: 50%;
     }
   }
   &__header {
@@ -30,14 +63,22 @@
   &__body {
     font-size: 1.4rem;
     padding: 3rem;
-    letter-spacing: 2px;
+    letter-spacing: 0.2rem;
     white-space: pre-line;
+    @include respond(phone-only) {
+      font-size: 1.2rem;
+      letter-spacing: 0.1rem;
+      padding: 0;
+    }
   }
   &__media {
     display: flex;
     &-image {
       border-radius: 100%;
       height: 30rem;
+      @include respond(phone-only) {
+        height: 20rem;
+      }
     }
   }
 }

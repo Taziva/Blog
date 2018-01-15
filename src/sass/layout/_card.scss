@@ -1,8 +1,13 @@
 .card {
   box-shadow: 0 1.5rem 3rem rgba(0, 0, 0, 0.2);
-  padding: 4rem 7rem;
   margin-bottom: 5rem;
   @include respond(phone-only) {
     padding: 2rem 3rem;
+  }
+  @include respond(tablet-portrait-up) {
+    padding: 3rem 3.5rem;
+  }
+  @include respond(tablet-landscape-up) {
+    padding: 4rem 7rem;
   }
 }

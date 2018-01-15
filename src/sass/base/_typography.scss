@@ -26,15 +26,28 @@ body {
       letter-spacing: 0.5rem;
       border-bottom: 0.5rem solid #fff;
     }
+    @include respond(tablet-portrait-up) {
+      font-size: 4rem;
+      letter-spacing: 1rem;
+    }
+    @include respond(desktop-up) {
+      font-size: 6rem;
+      letter-spacing: 3.5rem;
+    }
   }
 
   &--sub {
     animation: slideInRight 1s ease-out;
     display: block;
     font-size: 2rem;
-    letter-spacing: 1.75rem;
     @include respond(phone-only) {
       display: none;
+    }
+    @include respond(tablet-portrait-up) {
+      letter-spacing: 1rem;
+    }
+    @include respond(desktop-up) {
+      letter-spacing: 1.75rem;
     }
   }
 }

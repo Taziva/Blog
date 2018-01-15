@@ -6,6 +6,13 @@
   align-items: center;
   width: 100%;
   padding: 0 5rem;
+  @include respond(tablet-portrait-up) {
+    padding: 0;
+  }
+  @include respond(tablet-portrait-up) {
+    padding: 0 5rem;
+  }
+
   &__brand {
     &-link {
       color: #fff;

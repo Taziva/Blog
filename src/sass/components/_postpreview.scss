@@ -2,13 +2,6 @@
   width: 75%;
   padding-bottom: 7rem;
   border-radius: 0.3rem;
-  min-height: 40rem;
-  background-image: linear-gradient(
-    105deg,
-    rgba(255, 255, 255, 0.92) 0%,
-    rgba(255, 255, 255, 0.92) 50%,
-    transparent 50%
-  );
   background-size: cover;
   position: relative;
 
@@ -21,6 +14,23 @@
       rgba(255, 255, 255, 0.92) 55%,
       transparent 55%
     );
+  }
+  @include respond(tablet-portrait-up) {
+    min-height: 0;
+    width: 100%;
+    background-image: linear-gradient(
+      105deg,
+      rgba(255, 255, 255, 0.92) 0%,
+      rgba(255, 255, 255, 0.92) 50%,
+      transparent 50%
+    );
+  }
+  @include respond(tablet-landscape-up) {
+    min-height: 40rem;
+    width: 75%;
+  }
+  &__content {
+    margin-bottom: 1.5rem;
   }
   &__background {
     position: absolute;
@@ -63,9 +73,12 @@
     margin-left: 0;
     @include respond(phone-only) {
       display: none;
-      font-size: 1.5rem;
-      width: 100%;
-      margin-bottom: 2rem;
+    }
+    @include respond(tablet-portrait-up) {
+      font-size: 1.15rem;
+    }
+    @include respond(tablet-landscape-up) {
+      font-size: 1.2rem;
     }
   }
   &__media {
@@ -73,9 +86,14 @@
       @include respond(phone-only) {
         display: none;
       }
+      @include respond(tablet-portrait-up) {
+        font-size: 1.35rem;
+      }
+      @include respond(tablet-landscape-up) {
+        font-size: 1.5rem;
+      }
     }
-    &-phone-link {
-      display: none;
+    &-touch-link {
       @include respond(phone-only) {
         display: inline;
         span {
@@ -84,15 +102,34 @@
           height: 100%;
           top: 0;
           left: 0;
-
           z-index: 1;
         }
+      }
+      @include respond(tablet-portrait-up) {
+        display: inline;
+        span {
+          position: absolute;
+          width: 100%;
+          height: 100%;
+          top: 0;
+          left: 0;
+          z-index: 1;
+        }
+      }
+      @include respond(desktop-up) {
+        display: none;
       }
     }
     &-info {
       font-size: 1.2rem;
       @include respond(phone-only) {
         width: 40%;
+      }
+      @include respond(tablet-portrait-up) {
+        width: 35%;
+      }
+      @include respond(tablet-landscape-up) {
+        width: inherit;
       }
     }
     &-date {
@@ -105,11 +142,19 @@
       );
       -webkit-background-clip: text;
       color: transparent;
-      width: 40%;
       margin-left: 0;
       @include respond(phone-only) {
         color: $color-primary;
         font-size: 1.2rem;
+      }
+      @include respond(tablet-portrait-up) {
+        color: $color-primary;
+        font-size: 1.2rem;
+      }
+      @include respond(tablet-landscape-up) {
+        font-size: 1.5rem;
+        color: transparent;
+        width: 40%;
       }
     }
   }

@@ -13,7 +13,7 @@ const PostPreview = ({ post }) => {
           alt="Background"
         />
       </div>
-      <Link className="post-preview__media-phone-link" to={`/blog/${post.id}`}>
+      <Link className="post-preview__media-touch-link" to={`/blog/${post.id}`}>
         <span />
       </Link>
       <div className="post-preview__media-link">
@@ -22,7 +22,10 @@ const PostPreview = ({ post }) => {
         </Link>
       </div>
       <div className="post-preview__media-info u-margin-top-small">
-        <p className="post-preview__media-author">{`By ${post.author}`}</p>
+        <p className="post-preview__media-author">
+          <span>By </span>
+          {post.author}
+        </p>
         <p className="post-preview__media-date">{post.date}</p>
       </div>
     </Card>

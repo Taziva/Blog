@@ -8,6 +8,6 @@ export function fetchTagLine(page) {
 }
 
 export const tagLines = {
-  blog: "My thoughts on the crazy world we live",
+  blog: "On the brink of greatness",
   home: "If you want to get to know me"
 };
