@@ -30,7 +30,7 @@
       ),
       url("./images/bg-aboutme.jpg");
   }
-  @include respond(tablet-portrait-up) {
+  @include respond(tablet-landscape-up) {
     flex-direction: row;
     align-items: center;
     background-image: linear-gradient(
@@ -41,7 +41,6 @@
       url("./images/bg-aboutme.jpg");
   }
   &__content {
-    width: 50%;
     @include respond(phone-only) {
       width: 90%;
     }
@@ -50,6 +49,9 @@
     }
     @include respond(tablet-landscape-up) {
       width: 70%;
+    }
+    @include respond(tablet-landscape-up) {
+      width: 50%;
     }
   }
   &__header {
@@ -74,6 +76,9 @@
     &-image {
       border-radius: 100%;
       height: 30rem;
+      @include respond(phone-only) {
+        height: 20rem;
+      }
     }
   }
 }

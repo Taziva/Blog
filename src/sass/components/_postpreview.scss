@@ -2,18 +2,9 @@
   width: 75%;
   padding-bottom: 7rem;
   border-radius: 0.3rem;
-  min-height: 40rem;
-  background-image: linear-gradient(
-    105deg,
-    rgba(255, 255, 255, 0.92) 0%,
-    rgba(255, 255, 255, 0.92) 50%,
-    transparent 50%
-  );
   background-size: cover;
   position: relative;
-  &__content {
-    margin-bottom: 1.5rem;
-  }
+
   @include respond(phone-only) {
     min-height: 0;
     width: 100%;
@@ -27,20 +18,19 @@
   @include respond(tablet-portrait-up) {
     min-height: 0;
     width: 100%;
-  }
-  @include respond(tablet-landscape-up) {
-    width: 75%;
-    padding-bottom: 7rem;
-    border-radius: 0.3rem;
-    min-height: 40rem;
     background-image: linear-gradient(
       105deg,
       rgba(255, 255, 255, 0.92) 0%,
       rgba(255, 255, 255, 0.92) 50%,
       transparent 50%
     );
-    background-size: cover;
-    position: relative;
+  }
+  @include respond(tablet-landscape-up) {
+    min-height: 40rem;
+    width: 75%;
+  }
+  &__content {
+    margin-bottom: 1.5rem;
   }
   &__background {
     position: absolute;
@@ -76,20 +66,6 @@
       color: $color-primary;
       text-align: left;
     }
-    @include respond(tablet-landscape-up) {
-      font-size: 2rem;
-      margin-bottom: 2rem;
-      background-image: linear-gradient(
-        to right,
-        $color-primary,
-        $color-secondary
-      );
-      -webkit-background-clip: text;
-      color: transparent;
-      width: 40%;
-      margin-left: 0;
-      text-align: center;
-    }
   }
   &__body {
     font-size: 1.2rem;
@@ -118,7 +94,6 @@
       }
     }
     &-touch-link {
-      display: none;
       @include respond(phone-only) {
         display: inline;
         span {
@@ -140,6 +115,9 @@
           left: 0;
           z-index: 1;
         }
+      }
+      @include respond(desktop-up) {
+        display: none;
       }
     }
     &-info {
@@ -164,7 +142,6 @@
       );
       -webkit-background-clip: text;
       color: transparent;
-      width: 40%;
       margin-left: 0;
       @include respond(phone-only) {
         color: $color-primary;
@@ -176,16 +153,8 @@
       }
       @include respond(tablet-landscape-up) {
         font-size: 1.5rem;
-        margin-bottom: 2rem;
-        background-image: linear-gradient(
-          to right,
-          $color-primary,
-          $color-secondary
-        );
-        -webkit-background-clip: text;
         color: transparent;
         width: 40%;
-        margin-left: 0;
       }
     }
   }

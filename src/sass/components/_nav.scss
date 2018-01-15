@@ -9,6 +9,10 @@
   @include respond(tablet-portrait-up) {
     padding: 0;
   }
+  @include respond(tablet-portrait-up) {
+    padding: 0 5rem;
+  }
+
   &__brand {
     &-link {
       color: #fff;
