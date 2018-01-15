@@ -30,6 +30,16 @@
       ),
       url("./images/bg-aboutme.jpg");
   }
+  @include respond(tablet-portrait-up) {
+    flex-direction: row;
+    align-items: center;
+    background-image: linear-gradient(
+        to right bottom,
+        rgba(255, 255, 255, 0.9),
+        rgba(255, 255, 255, 0.9)
+      ),
+      url("./images/bg-aboutme.jpg");
+  }
   &__content {
     width: 50%;
     @include respond(phone-only) {
@@ -37,6 +47,9 @@
     }
     @include respond(tablet-portrait-up) {
       width: 90%;
+    }
+    @include respond(tablet-landscape-up) {
+      width: 70%;
     }
   }
   &__header {

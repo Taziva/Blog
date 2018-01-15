@@ -17,6 +17,9 @@
     @include respond(tablet-portrait-up) {
       padding: 0 5rem;
     }
+    @include respond(tablet-landscape-up) {
+      padding: 0 10rem;
+    }
   }
   &__header {
     font-size: 5rem;
@@ -65,10 +68,12 @@
   }
   &__media {
     &-info {
-      margin-top: 5rem 0;
       color: $color-grey-dark;
       @include respond(phone-only) {
         margin: 1rem 0;
+      }
+      @include respond(tablet-landscape-up) {
+        margin-bottom: 2rem;
       }
     }
     &-author {
@@ -116,6 +121,9 @@
       padding: 0 5rem;
       align-items: center;
       justify-content: space-around;
+    }
+    @include respond(tablet-landscape-up) {
+      padding: 0 10rem;
     }
 
     &-social {
