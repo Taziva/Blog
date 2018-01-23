@@ -42,10 +42,17 @@ app.get("/api/posts", async (req, res) => {
     const blogContent = await cms.content.get("blogContent", {
       populate: [{ field: "heroImage" }]
     });
+    const articles = await cms.content.get("articles", {
+      populate: [{ field: "heroImage" }]
+    });
     let posts = [];
     for (var key in blogContent) {
       posts.push(blogContent[key]);
     }
+    for (var key in articles) {
+      posts.push(articles[key]);
+    }
+    console.log(posts);
     res.send(posts);
   } catch (error) {
     res.send(error);
