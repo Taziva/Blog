@@ -37,7 +37,13 @@ describe("Post", () => {
     renderPost();
   });
 
-  it("renders with scripts", () => {
+  it("renders with twitter scripts without crashing", () => {
+    post.content = "<div class='twitter-content'></div>";
+    renderPost();
+  });
+  it("renders with twitter scripts without crashing", () => {
+    post.content =
+      "<div class='twitter-content'><blockquote></blockquote></div>";
     renderPost();
   });
 });

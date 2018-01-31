@@ -18,9 +18,22 @@ export class Post extends Component {
       script.src = fancy_script;
       script.async = true;
       this.gallery.appendChild(script);
-    } else {
-      return;
     }
+    if (this.postText.getElementsByClassName("twitter-content").length > 0) {
+      const script = document.createElement("script");
+      const list = this.postText.getElementsByClassName("twitter-content");
+
+      script.src = "https://platform.twitter.com/widgets.js";
+      script.async = true;
+
+      for (var i = 0; i < list.length; i++) {
+        if (list[i].firstChild) {
+          list[i].firstChild.className = "twitter-video";
+          list[i].appendChild(script);
+        }
+      }
+    }
+    return;
   }
 
   render() {
@@ -52,7 +65,12 @@ export class Post extends Component {
             <p className="post__media-author">By {this.props.post.author}</p>
             <p className="post__media-date">{this.props.post.date}</p>
           </div>
-          <div className="post__text">
+          <div
+            className="post__text"
+            ref={postText => {
+              this.postText = postText;
+            }}
+          >
             {ReactHtmlParser(this.props.post.content)}
             {/* if fancy widget is used on page */}
             {this.props.post.fancy_script ? (
