@@ -9,18 +9,34 @@ const { FacebookShareButton, TwitterShareButton } = ShareButtons;
 
 export class Post extends Component {
   componentDidMount() {
-    this.createScripts(this.props.post.fancy_script);
+    this.fancyScripts(this.props.post.fancy_script);
+    this.twitterScript();
   }
-  createScripts(fancy_script) {
+  fancyScripts(fancy_script) {
     if (fancy_script) {
-      const script = document.createElement("script");
-
-      script.src = fancy_script;
-      script.async = true;
+      const script = this.createScript(fancy_script);
       this.gallery.appendChild(script);
-    } else {
-      return;
     }
+    return;
+  }
+  twitterScript() {
+    if (!this.postText.getElementsByClassName("twitter-content").length > 0)
+      return;
+    const list = this.postText.getElementsByClassName("twitter-content");
+    const script = this.createScript("https://platform.twitter.com/widgets.js");
+    for (let i = 0; i < list.length; i++) {
+      if (!list[i].firstChild) return;
+      list[i].firstChild.className = "twitter-video";
+      list[i].appendChild(script);
+    }
+    return;
+  }
+
+  createScript(src) {
+    const script = document.createElement("script");
+    script.src = src;
+    script.async = true;
+    return script;
   }
 
   render() {
@@ -52,7 +68,12 @@ export class Post extends Component {
             <p className="post__media-author">By {this.props.post.author}</p>
             <p className="post__media-date">{this.props.post.date}</p>
           </div>
-          <div className="post__text">
+          <div
+            className="post__text"
+            ref={postText => {
+              this.postText = postText;
+            }}
+          >
             {ReactHtmlParser(this.props.post.content)}
             {/* if fancy widget is used on page */}
             {this.props.post.fancy_script ? (

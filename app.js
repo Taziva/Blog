@@ -52,7 +52,6 @@ app.get("/api/posts", async (req, res) => {
     for (var key in articles) {
       posts.push(articles[key]);
     }
-    console.log(posts);
     res.send(posts);
   } catch (error) {
     res.send(error);
