@@ -9,31 +9,34 @@ const { FacebookShareButton, TwitterShareButton } = ShareButtons;
 
 export class Post extends Component {
   componentDidMount() {
-    this.createScripts(this.props.post.fancy_script);
+    this.fancyScripts(this.props.post.fancy_script);
+    this.twitterScript();
   }
-  createScripts(fancy_script) {
+  fancyScripts(fancy_script) {
     if (fancy_script) {
-      const script = document.createElement("script");
-
-      script.src = fancy_script;
-      script.async = true;
+      const script = this.createScript(fancy_script);
       this.gallery.appendChild(script);
     }
-    if (this.postText.getElementsByClassName("twitter-content").length > 0) {
-      const script = document.createElement("script");
-      const list = this.postText.getElementsByClassName("twitter-content");
-
-      script.src = "https://platform.twitter.com/widgets.js";
-      script.async = true;
-
-      for (var i = 0; i < list.length; i++) {
-        if (list[i].firstChild) {
-          list[i].firstChild.className = "twitter-video";
-          list[i].appendChild(script);
-        }
-      }
+    return;
+  }
+  twitterScript() {
+    if (!this.postText.getElementsByClassName("twitter-content").length > 0)
+      return;
+    const list = this.postText.getElementsByClassName("twitter-content");
+    const script = this.createScript("https://platform.twitter.com/widgets.js");
+    for (let i = 0; i < list.length; i++) {
+      if (!list[i].firstChild) return;
+      list[i].firstChild.className = "twitter-video";
+      list[i].appendChild(script);
     }
     return;
+  }
+
+  createScript(src) {
+    const script = document.createElement("script");
+    script.src = src;
+    script.async = true;
+    return script;
   }
 
   render() {
