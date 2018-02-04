@@ -159,4 +159,10 @@
       padding: 0 20rem;
     }
   }
+  blockquote {
+    width: 70%;
+    margin-left: 2rem;
+    border-left: 0.5rem solid $color-primary;
+    padding-left: 2rem;
+  }
 }
