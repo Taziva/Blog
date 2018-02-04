@@ -69,6 +69,9 @@
   }
   &__body {
     font-size: 1.2rem;
+    font-family: "Orkney";
+    color: $color-grey-dark-4;
+
     width: 40%;
     margin-left: 0;
     @include respond(phone-only) {
@@ -78,7 +81,7 @@
       font-size: 1.15rem;
     }
     @include respond(tablet-landscape-up) {
-      font-size: 1.2rem;
+      font-size: 1.5rem;
     }
   }
   &__media {
@@ -122,6 +125,8 @@
     }
     &-info {
       font-size: 1.2rem;
+      color: $color-grey-dark-4;
+
       @include respond(phone-only) {
         width: 40%;
       }
@@ -156,6 +161,9 @@
         color: transparent;
         width: 40%;
       }
+    }
+    &-author {
+      font-size: 1.5rem;
     }
   }
 }
