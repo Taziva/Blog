@@ -1,3 +1,43 @@
+.mission {
+  text-align: center;
+  background-color: #ffffff;
+  border-radius: 0.3rem;
+
+  &__header {
+    font-size: 3rem;
+    @include respond(phone-only) {
+      margin-top: 2rem;
+    }
+  }
+
+  &__body {
+    font-family: "Simplifica", sans-serif;
+    font-size: 2rem;
+    padding: 3rem;
+    letter-spacing: 0.14rem;
+  }
+}
+
+.concept {
+  text-align: center;
+  background-color: #ffffff;
+  border-radius: 0.3rem;
+
+  &__header {
+    font-size: 3rem;
+    @include respond(phone-only) {
+      margin-top: 2rem;
+    }
+  }
+
+  &__body {
+    font-family: "Simplifica", sans-serif;
+    font-size: 2rem;
+    padding: 3rem;
+    letter-spacing: 0.14rem;
+  }
+}
+
 .about-me {
   display: flex;
   justify-content: space-around;
@@ -61,9 +101,10 @@
     }
   }
   &__body {
-    font-size: 1.4rem;
+    font-family: "Simplifica", sans-serif;
+    font-size: 2rem;
     padding: 3rem;
-    letter-spacing: 0.2rem;
+    letter-spacing: 0.14rem;
     white-space: pre-line;
     @include respond(phone-only) {
       font-size: 1.2rem;
