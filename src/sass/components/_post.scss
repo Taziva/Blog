@@ -105,13 +105,21 @@
     }
   }
   &__text {
-    font-size: 1.5rem;
+    font-size: 2rem;
     @include respond(phone-only) {
       font-size: 1.4rem;
     }
-    font-family: "Orkney";
-    color: $color-grey-dark-4;
+    font-family: "Simplifica";
+    letter-spacing: 1.3px;
+    color: $color-grey-dark-5;
     border-bottom: 1px solid $color-primary;
+
+    a {
+      color: $color-primary;
+    }
+    h3 {
+      border-bottom: 1px solid $color-primary;
+    }
   }
   &__share {
     &-social {
