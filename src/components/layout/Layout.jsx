@@ -6,7 +6,7 @@ import PropTypes from "prop-types";
 export default class Layout extends Component {
   render() {
     return (
-      <div>
+      <div className={this.props.pageTitle.toLowerCase().replace(" ", "-")}>
         <Nav />
         <Header title={this.props.pageTitle} tagLine={this.props.tagLine} />
         {this.props.children}
