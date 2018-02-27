@@ -1,124 +1,141 @@
-.mission {
-  text-align: center;
-  background-color: #ffffff;
-  border-radius: 0.3rem;
+.about {
+  .mission {
+    text-align: center;
+    background-color: #ffffff;
+    border-radius: 0.3rem;
 
-  &__header {
-    font-size: 3rem;
-    @include respond(phone-only) {
-      margin-top: 2rem;
+    &__header {
+      font-size: 3rem;
+      @include respond(phone-only) {
+        margin-top: 2rem;
+      }
+    }
+
+    &__body {
+      font-family: "Open Sans", sans-serif;
+      font-weight: 300;
+      font-size: 1.6rem;
+      padding: 3rem;
     }
   }
 
-  &__body {
-    font-family: "Simplifica", sans-serif;
-    font-size: 2rem;
-    padding: 3rem;
-    letter-spacing: 0.14rem;
-  }
-}
+  .concept {
+    text-align: center;
+    background-color: #ffffff;
+    border-radius: 0.3rem;
 
-.concept {
-  text-align: center;
-  background-color: #ffffff;
-  border-radius: 0.3rem;
+    &__header {
+      font-size: 3rem;
+      @include respond(phone-only) {
+        margin-top: 2rem;
+      }
+    }
 
-  &__header {
-    font-size: 3rem;
-    @include respond(phone-only) {
-      margin-top: 2rem;
+    &__body {
+      font-family: "Open Sans", sans-serif;
+      font-weight: 300;
+      font-size: 1.6rem;
+      padding: 3rem;
+      letter-spacing: 0.14rem;
     }
   }
 
-  &__body {
-    font-family: "Simplifica", sans-serif;
-    font-size: 2rem;
-    padding: 3rem;
-    letter-spacing: 0.14rem;
-  }
-}
-
-.about-me {
-  display: flex;
-  justify-content: space-around;
-  background-image: linear-gradient(
-      to right bottom,
-      rgba(255, 255, 255, 0.8),
-      rgba(255, 255, 255, 0.8)
-    ),
-    url("./images/bg-aboutme.jpg");
-  background-size: cover;
-  border-radius: 0.3rem;
-  text-align: center;
-  @include respond(phone-only) {
-    flex-direction: column-reverse;
+  .about-me {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
     align-items: center;
     background-image: linear-gradient(
         to right bottom,
-        rgba(255, 255, 255, 0.9),
-        rgba(255, 255, 255, 0.9)
+        rgba(255, 255, 255, 0.8),
+        rgba(255, 255, 255, 0.8)
       ),
       url("./images/bg-aboutme.jpg");
-  }
-  @include respond(tablet-portrait-up) {
-    flex-direction: column-reverse;
-    align-items: center;
-    background-image: linear-gradient(
-        to right bottom,
-        rgba(255, 255, 255, 0.9),
-        rgba(255, 255, 255, 0.9)
-      ),
-      url("./images/bg-aboutme.jpg");
-  }
-  @include respond(tablet-landscape-up) {
-    flex-direction: row;
-    align-items: center;
-    background-image: linear-gradient(
-        to right bottom,
-        rgba(255, 255, 255, 0.9),
-        rgba(255, 255, 255, 0.9)
-      ),
-      url("./images/bg-aboutme.jpg");
-  }
-  &__content {
+    background-size: cover;
+    border-radius: 0.3rem;
+    text-align: center;
     @include respond(phone-only) {
-      width: 90%;
+      background-image: linear-gradient(
+          to right bottom,
+          rgba(255, 255, 255, 0.9),
+          rgba(255, 255, 255, 0.9)
+        ),
+        url("./images/bg-aboutme.jpg");
     }
     @include respond(tablet-portrait-up) {
-      width: 90%;
+      background-image: linear-gradient(
+          to right bottom,
+          rgba(255, 255, 255, 0.9),
+          rgba(255, 255, 255, 0.9)
+        ),
+        url("./images/bg-aboutme.jpg");
     }
     @include respond(tablet-landscape-up) {
-      width: 70%;
+      background-image: linear-gradient(
+          to right bottom,
+          rgba(255, 255, 255, 0.9),
+          rgba(255, 255, 255, 0.9)
+        ),
+        url("./images/bg-aboutme.jpg");
     }
-    @include respond(tablet-landscape-up) {
-      width: 50%;
-    }
-  }
-  &__header {
-    font-size: 3rem;
-    @include respond(phone-only) {
-      margin-top: 2rem;
-    }
-  }
-  &__body {
-    font-family: "Simplifica", sans-serif;
-    font-size: 2rem;
-    padding: 3rem;
-    letter-spacing: 0.14rem;
-    white-space: pre-line;
-    @include respond(phone-only) {
-      font-size: 1.2rem;
-      letter-spacing: 0.1rem;
-      padding: 0;
-    }
-  }
-  &__media {
-    display: flex;
-    &-image {
-      border-radius: 100%;
-      height: 30rem;
+    &__content {
       @include respond(phone-only) {
-        height: 20rem;
+        width: 90%;
+      }
+      @include respond(tablet-portrait-up) {
+        width: 90%;
+      }
+      @include respond(tablet-landscape-up) {
+        width: 70%;
+      }
+      @include respond(tablet-landscape-up) {
+        width: 50%;
+      }
+    }
+    &__header {
+      font-size: 3rem;
+      @include respond(phone-only) {
+        margin-top: 2rem;
+      }
+    }
+    &__body {
+    }
+    &__media {
+      display: flex;
+      @include respond(phone-only) {
+        flex-direction: column-reverse;
+        align-items: center;
+      }
+
+      @include respond(tablet-portrait-up) {
+        flex-direction: column-reverse;
+        align-items: center;
+      }
+      @include respond(tablet-landscape-up) {
+        flex-direction: row;
+        align-items: center;
+      }
+
+      &-text {
+        font-family: "Open Sans", sans-serif;
+        font-weight: 300;
+        font-size: 1.6rem;
+        padding: 3rem;
+        letter-spacing: 0.14rem;
+        white-space: pre-line;
+        @include respond(phone-only) {
+          font-size: 1.2rem;
+          letter-spacing: 0.1rem;
+          padding: 0;
+        }
+      }
+
+      &-image {
+        border-radius: 100%;
+        height: 30rem;
+        @include respond(phone-only) {
+          height: 20rem;
+        }
       }
     }
   }

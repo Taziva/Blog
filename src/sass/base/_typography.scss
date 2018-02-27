@@ -7,15 +7,8 @@
     url("./fonts/cassannet/cassannet.svg#filename") format("svg");
 }
 
-@font-face {
-  font-family: "Simplifica";
-  src: url("./fonts/Simplifica/Simplifica.eot");
-  src: url("./fonts/Simplifica/Simplifica.woff") format("woff"),
-    url("./fonts/Simplifica/Simplifica.ttf") format("ttf"),
-    url("./fonts/Simplifica/Simplifica.woff2") format("woff2");
-}
+@import url("https://fonts.googleapis.com/css?family=Open+Sans:300,400");
 
-@import url("https://fonts.googleapis.com/css?family=Text+Me+One");
 body {
   font-family: "Cassannet";
   line-height: 2;

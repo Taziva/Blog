@@ -8,7 +8,8 @@ export default class AboutMe extends Component {
       <Layout pageTitle="About" tagLine="If you wanna know me">
         <Card sectionName="mission" title="Mission" text={mission} />
         <Card sectionName="concept" title="Concept" text={concept} />
-        <Card sectionName="about-me" title="About Me" text={shoniwa}>
+        <Card sectionName="about-me" title="About Me" text={""}>
+          <p className="about-me__media-text">{shoniwa}</p>
           <img
             className="about-me__media-image"
             src="/images/hero-image.jpg"
