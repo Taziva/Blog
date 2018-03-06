@@ -4,6 +4,10 @@
 
 * [Quick Start](#quick-start)
 * [Testing](#testing)
+* [Deployment](#deployment)
+* [Technology](#technology)
+* [Decisions](#decisions)
+* [Specification](#specification)
 
 ## Quick Start
 
@@ -37,7 +41,7 @@ yarn build
 yarn deploy
 ```
 
-## Technologies
+## Technology
 
 ---
 
@@ -58,7 +62,7 @@ yarn deploy
 
 ---
 
-## Decision Making
+## Decisions
 
 ### Why React JS?
 
