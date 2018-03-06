@@ -2,14 +2,14 @@
 
 ## Table of Contents
 
-* [Quick Start](#quick-start)
-* [Testing](#testing)
-* [Deployment](#deployment)
-* [Technology](#technology)
-* [Decisions](#decisions)
-* [Specification](#specification)
+* [Quick Start](#quick-start) :rocket:
+* [Testing](#testing) :microscope:
+* [Deployment](#deployment) :squirrel:
+* [Technology](#technology) :computer:
+* [Decisions](#decisions) :question::exclamation:
+* [Specification](#specification) :clipboard:
 
-## Quick Start
+## Quick Start :rocket:
 
 ```
 # Install dependencies
@@ -22,14 +22,14 @@ yarn run watch:sass
 yarn dev
 ```
 
-## Testing
+## Testing :microscope:
 
 ```
 # Run jest tests
 yarn test
 ```
 
-## Deployment
+## Deployment :squirrel:
 
 ```
 # Make sure you have Google Cloud SDK installed
@@ -41,7 +41,7 @@ yarn build
 yarn deploy
 ```
 
-## Technology
+## Technology :computer:
 
 ---
 
@@ -62,7 +62,7 @@ yarn deploy
 
 ---
 
-## Decisions
+## Decisions :question::exclamation:
 
 ### Why React JS?
 
@@ -82,7 +82,7 @@ I didn't like how it revealed API keys when AJAX requests were made through the 
 
 ---
 
-## Specification
+## Specification :clipboard:
 
 * Blog that can display content written on Flamelink CMS.
 
